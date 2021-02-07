@@ -30,7 +30,7 @@ class SearchBox extends React.Component {
       <div className="search">
         <input
           type="search"
-          placeholder=" Type here to search for a topic"
+          placeholder="Type here to search for a topic"
         />
       </div>
 
