@@ -18,6 +18,10 @@ input{
   font-size: 1.2rem;
 }
 
+input:focus {
+  outline: none;
+}
+
 .post{
   border-radius: 10px;
   display: flex;
