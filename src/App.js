@@ -24,20 +24,20 @@ class Post extends React.Component {
 }
 
 function SearchBox() {
-    return (
-      <div className="search">
-        <form classname = "search=form">
-          <input
-          classname = "seach-bar"
+  return (
+    <div className="search">
+      <form className="search-form">
+        <input
+          className="seach-bar"
           type="search"
           placeholder="Type here to search for a topic"
-          />
-          <button classname = "search-button" type = "submit">
-          search
+        />
+        <button className="search-button" type="submit">
+          Search
           </button>
-        </form>
-      </div>
-    );
+      </form>
+    </div>
+  );
 }
 
 class App extends React.Component {
@@ -53,9 +53,9 @@ class App extends React.Component {
 
   renderPosts(catagory) {
 
-    let postArr = catagory.map((post,index) => {
+    let postArr = catagory.map((post, index) => {
       return (
-        <Post key = {index}/>
+        <Post key={index} />
       )
     });
     return <ul>{postArr}</ul>
@@ -75,9 +75,9 @@ class App extends React.Component {
     let catagory = this.state.foods;
     return (
       <div>
-        <SearchBox/>
-        <button onClick = {() => this.addNewPost()} >
-        Upload
+        <SearchBox />
+        <button className="upload-button" onClick={() => this.addNewPost()} >
+          Upload
         </button>
         {this.renderPosts(catagory)}
       </div>
