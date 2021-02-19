@@ -23,21 +23,24 @@ class Post extends React.Component {
   }
 }
 
-function SearchBox() {
-  return (
-    <div className="search">
-      <form className="search-form">
-        <input
-          className="seach-bar"
-          type="search"
-          placeholder="Type here to search for a topic"
-        />
-        <button className="search-button" type="submit">
-          Search
-          </button>
-      </form>
-    </div>
-  );
+class SearchBox extends React.Component {
+  render() {
+    return (
+      <div className="search" >
+        <form className="search-form" onSubmit={this.props.handleSubmit}>
+          <input
+            className="search-bar"
+            type="search"
+            placeholder="Type here to search for a topic"
+          />
+          <button className="search-button" type="submit">
+            Search
+        </button>
+        </form>
+      </div>
+    );
+  }
+
 }
 
 class App extends React.Component {
@@ -70,12 +73,18 @@ class App extends React.Component {
     });
   }
 
+  handleSubmit() {
+    alert("searched")
+  }
+
   render() {
     //tbd: currently displays foods.
     let catagory = this.state.foods;
     return (
       <div>
-        <SearchBox />
+        <SearchBox
+          onClick={() => this.handleSubmit}
+        />
         <button className="upload-button" onClick={() => this.addNewPost()} >
           Upload
         </button>
