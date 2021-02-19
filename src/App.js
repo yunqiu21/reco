@@ -6,52 +6,64 @@ class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      title: this.props.title,
       likes: 0,
       category: null,
     }
+  }
+  getTitle() {
+    return this.state.title;
   }
   render() {
     return (
       <div className="post">
         <img
-          src={sample}
+          src={this.props.url}
           alt="testing"
         />
-        <p>Sample Picture</p>
+        <p>{this.props.description}</p>
       </div>
     )
   }
 }
 
 class SearchBox extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      testing: [],
+    }
+  }
+
   render() {
     return (
       <div className="search" >
-        <form className="search-form" onSubmit={this.props.handleSubmit}>
+        <form className="search-form">
           <input
-            className="search-bar"
+            id="search-input"
             type="search"
             placeholder="Type here to search for a topic"
           />
-          <button className="search-button" type="submit">
+          <button className="search-button" type="button" onClick={this.props.handleSearch}>
             Search
-        </button>
+          </button>
         </form>
       </div>
     );
   }
-
 }
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      posts: [],
       foods: [],
       drinks: [],
-      show_foods: true,
-      show_drinks: true,
-      postArr: []
+      showFoods: true,
+      showDrinks: true,
+      postArr: [],
+      searchResult: [],
     }
   }
 
@@ -59,42 +71,50 @@ class App extends React.Component {
 
     let postArr = arr.map((post, index) => {
       return (
-        <Post key={index} />
+        <Post key={index} title={post.title} url={post.url} description={post.description} />
       )
     });
     return <ul>{postArr}</ul>
   }
 
-  addNewPost() {
+  addNewPost(title, url, description) {
     // tbd: upload currently add to foods.
     let posts = this.state.foods;
-    posts.unshift(Post);
+    posts.unshift({
+      title: title,
+      url: url,
+      description: description,
+    });
     this.setState({
       posts: posts,
     });
   }
 
-  handleSubmit() {
-    alert("searched")
+  handleSearch() {
+    const posts = this.state.posts;
+    console.log(document.getElementById("search-input").value);
+    const toSearch = document.getElementById("search-input").value;
+    const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
+    this.setState({
+      postArr: results,
+    })
   }
 
   render() {
     //tbd: currently displays foods.
     return (
       <div>
-        <SearchBox
-          onClick={() => this.handleSubmit}
-        />
-        <button className="upload-button" onClick={() => this.addNewPost()} >
+        <SearchBox handleSearch={() => this.handleSearch()} />
+        <button className="upload-button" onClick={() => this.addNewPost("sample", sample, "sample picture")} >
           Upload
         </button>
         <button className="upload-button"
           onClick={() => this.setState({ postArr: this.state.foods })} >
-          food
+          Food
         </button>
         <button className="upload-button"
           onClick={() => this.setState({ postArr: this.state.drinks })} >
-          drinks
+          Drinks
         </button>
         {this.renderPosts(this.state.postArr)}
       </div>
