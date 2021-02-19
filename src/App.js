@@ -6,7 +6,6 @@ class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: this.props.title,
       likes: 0,
       category: null,
     }
@@ -17,6 +16,7 @@ class Post extends React.Component {
   render() {
     return (
       <div className="post">
+        <p>{this.props.title}</p>
         <img
           src={this.props.url}
           alt="testing"
@@ -57,7 +57,6 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      posts: [],
       foods: [],
       drinks: [],
       showFoods: true,
@@ -91,7 +90,7 @@ class App extends React.Component {
   }
 
   handleSearch() {
-    const posts = this.state.posts;
+    const posts = this.state.foods;
     console.log(document.getElementById("search-input").value);
     const toSearch = document.getElementById("search-input").value;
     const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
