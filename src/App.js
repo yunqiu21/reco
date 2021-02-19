@@ -50,13 +50,14 @@ class App extends React.Component {
       foods: [],
       drinks: [],
       show_foods: true,
-      show_drinks: true
+      show_drinks: true,
+      postArr: []
     }
   }
 
-  renderPosts(catagory) {
+  renderPosts(arr) {
 
-    let postArr = catagory.map((post, index) => {
+    let postArr = arr.map((post, index) => {
       return (
         <Post key={index} />
       )
@@ -79,7 +80,6 @@ class App extends React.Component {
 
   render() {
     //tbd: currently displays foods.
-    let catagory = this.state.foods;
     return (
       <div>
         <SearchBox
@@ -88,7 +88,15 @@ class App extends React.Component {
         <button className="upload-button" onClick={() => this.addNewPost()} >
           Upload
         </button>
-        {this.renderPosts(catagory)}
+        <button className="upload-button"
+          onClick={() => this.setState({ postArr: this.state.foods })} >
+          food
+        </button>
+        <button className="upload-button"
+          onClick={() => this.setState({ postArr: this.state.drinks })} >
+          drinks
+        </button>
+        {this.renderPosts(this.state.postArr)}
       </div>
     );
   }
