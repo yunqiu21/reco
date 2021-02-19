@@ -23,34 +23,63 @@ class Post extends React.Component {
   }
 }
 
-class SearchBox extends React.Component {
-
-  render() {
+function SearchBox() {
     return (
       <div className="search">
-        <input
+        <form classname = "search=form">
+          <input
+          classname = "seach-bar"
           type="search"
           placeholder="Type here to search for a topic"
-        />
+          />
+          <button classname = "search-button" type = "submit">
+          search
+          </button>
+        </form>
       </div>
-
-    )
-  }
+    );
 }
 
 class App extends React.Component {
-  renderPost(i) {
-    return (
-      <Post key={i} />
-    )
+  constructor(props) {
+    super(props)
+    this.state = {
+      foods: [],
+      drinks: [],
+      show_foods: true,
+      show_drinks: true
+    }
   }
+
+  renderPosts(catagory) {
+
+    let postArr = catagory.map((post,index) => {
+      return (
+        <Post key = {index}/>
+      )
+    });
+    return <ul>{postArr}</ul>
+  }
+
+  addNewPost() {
+    // tbd: upload currently add to foods.
+    let posts = this.state.foods;
+    posts.unshift(Post);
+    this.setState({
+      posts: posts,
+    });
+  }
+
   render() {
+    //tbd: currently displays foods.
+    let catagory = this.state.foods;
     return (
       <div>
-        <SearchBox />
-        {this.renderPost(1)}
-        {this.renderPost(2)}
-        {this.renderPost(3)}
+        <SearchBox/>
+        <button onClick = {() => this.addNewPost()} >
+        Upload
+        </button>
+        {this.renderPosts(catagory)}
       </div>
     );
   }
