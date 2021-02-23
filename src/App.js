@@ -12,34 +12,47 @@ class Post extends React.Component {
       image: image_name,
     }
   }
+  getTitle() {
+    return this.state.title;
+  }
   render() {
     return (
       <div className="post">
+        <p>{this.props.title}</p>
         <img
-          src={sample_drink}
+          src={this.props.url}
           alt="testing"
         />
-        <p>Sample Picture</p>
+        <p>{this.props.description}</p>
       </div>
     )
   }
 }
 
-function SearchBox() {
-  return (
-    <div className="search">
-      <form className="search-form">
-        <input
-          className="seach-bar"
-          type="search"
-          placeholder="Type here to search for a topic"
-        />
-        <button className="search-button" type="submit">
-          Search
-        </button>
-      </form>
-    </div>
-  );
+class SearchBox extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      testing: [],
+    }
+  }
+
+  render() {
+    return (
+      <div className="search" >
+        <form className="search-form">
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Type here to search for a topic"
+          />
+          <button className="search-button" type="button" onClick={this.props.handleSearch}>
+            Search
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 class App extends React.Component {
@@ -48,10 +61,10 @@ class App extends React.Component {
     this.state = {
       foods: [new Post('sample')],
       drinks: [],
-      show_foods: true,
-      show_drinks: true,
+      showFoods: true,
+      showDrinks: true,
       postArr: [],
-      upload: false
+      searchResult: [],
     }
   }
 
@@ -59,36 +72,50 @@ class App extends React.Component {
 
     let postArr = arr.map((post, index) => {
       return (
-        <Post key={index} />
+        <Post key={index} title={post.title} url={post.url} description={post.description} />
       )
     });
     return <ul>{postArr}</ul>
   }
 
-  addNewPost() {
+  addNewPost(title, url, description) {
     // tbd: upload currently add to foods.
     let posts = this.state.foods;
-    posts.unshift(Post);
+    posts.unshift({
+      title: title,
+      url: url,
+      description: description,
+    });
     this.setState({
       posts: posts,
     });
+  }
+
+  handleSearch() {
+    const posts = this.state.foods;
+    console.log(document.getElementById("search-input").value);
+    const toSearch = document.getElementById("search-input").value;
+    const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
+    this.setState({
+      postArr: results,
+    })
   }
 
   render() {
     //tbd: currently displays foods.
     return (
       <div>
-        <SearchBox />
-        <button className="upload-button" onClick={() => this.addNewPost()} >
+        <SearchBox handleSearch={() => this.handleSearch()} />
+        <button className="upload-button" onClick={() => this.addNewPost("sample", sample, "sample picture")} >
           Upload
         </button>
         <button className="upload-button"
-                onClick={() => this.setState({postArr: this.state.foods})} >
-          food
+          onClick={() => this.setState({ postArr: this.state.foods })} >
+          Food
         </button>
         <button className="upload-button"
-                onClick={() => this.setState({postArr: this.state.drinks})} >
-          drinks
+          onClick={() => this.setState({ postArr: this.state.drinks })} >
+          Drinks
         </button>
         {this.renderPosts(this.state.postArr)}
       </div>
