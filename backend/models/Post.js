@@ -13,7 +13,10 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default : Date.now
     },
-
+    like: {
+        type: int,
+        default: 0
+    },
 })
 
 
