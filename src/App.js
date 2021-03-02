@@ -4,7 +4,7 @@ import './components/searchbar.js'
 import sample from './images/sample.jpg';
 import sample_drink from './images/drinks_sample.jpg';
 import background from './images/background.jpg'
-
+import background2 from './images/background2.jpg'
 class Post extends React.Component {
   constructor(props, image_name = sample) {
     super(props)
@@ -13,11 +13,11 @@ class Post extends React.Component {
   render() {
     return (
       <div className="post">
-        <p>{this.props.user}</p>
         <img
           src={this.props.url}
           alt="testing">
         </img>
+        <p>{this.props.user}</p>
         <p>{this.props.description}</p>
       </div>
     )

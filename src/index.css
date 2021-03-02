@@ -1,6 +1,6 @@
 html{
-  margin: 0;
-  background-image: url(./images/background.jpg);
+  background-image: url(./images/background2.jpg);
+  background-size: cover;
 }
 
 
@@ -9,6 +9,7 @@ html{
   height: 75px;
   margin: 0px;
   background-color: black;
+  background-size: cover;
 }
 
 input{
@@ -37,7 +38,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   height: 370px;
-  width: 220px;
+  width: 200px;
   margin: 20px auto;
   padding: 10px;
   font-family: 'RocknRoll One', sans-serif;
@@ -62,5 +63,5 @@ input:focus {
 
 .rowC{
   display: grid;
-  grid-template-columns:  auto auto auto auto;
+  grid-template-columns:  auto auto auto auto auto;
 }
