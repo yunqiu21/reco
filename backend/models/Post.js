@@ -5,6 +5,10 @@ const PostSchema = mongoose.Schema({
         type: String,
         required : true
     },
+    author:{
+        type: String,
+        required: true
+    },
     description:{
         type: String,
         required : true
@@ -13,7 +17,10 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default : Date.now
     },
-
+    like: {
+        type: Number,
+        default: 0
+    },
 })
 
 

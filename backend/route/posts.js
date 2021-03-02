@@ -19,10 +19,11 @@ router.get('/specific', async(req, res) => {
     res.send('Hello, specific post!');
   });
 
-  //SUBMIT A POST
-router.post('/', async(req, res) => {
+//SUBMIT A POST
+router.post('/', async (req, res) => {
     const post = new Post({
         title: req.body.title,
+        author: req.body.author,
         description:req.body.description
     })
     try{
@@ -67,5 +68,26 @@ router.patch('/:postID', async(req, res) => {
         res.json({message: err});
     }
 } )
+
+
+// SEARCH BY KEYWORD
+router.post("/search", async (req,res) => {
+    try {  
+        const query = req.body.query
+        const queryList = query.split(" ")        
+        allQueries =[]
+        queryList.forEach(element => {
+            allQueries.push({title : {$regex : String(element)}})
+        });
+        const allPosts = await Post.find({$or : allQueries})
+        if(!allPosts || allPosts.length === 0) {
+            res.status(400).send({message : "No post was found"})
+        }
+        res.status(200).send(allPosts)
+    }catch{
+        res.json({message: err});
+    }
+})
+
 
 module.exports = router;

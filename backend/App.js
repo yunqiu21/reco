@@ -6,6 +6,7 @@ const app = express();
 app.use(cors());
 require('dotenv/config');
 
+app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json());
 
 
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 //Connect to DB
 mongoose.connect(
     process.env.DB_CONNECTION, 
-    {useNewUrlParser: true},
+    {useUnifiedTopology: true , useNewUrlParser: true},
     () => {
     console.log('Connected to DB');
 });
