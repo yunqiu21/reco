@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 //SPECIFIC POST
 router.get('/:postID', async(req, res) => {
     try {  
-      const post = await Post.findById(req.params.postID);
+        const post = await Post.findById(req.params.postID);
         res.json(post);
     }catch{
         res.json({message: err});
