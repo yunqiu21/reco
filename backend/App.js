@@ -24,10 +24,15 @@ app.get('/', (req, res) => {
 mongoose.connect(
   process.env.DB_CONNECTION,
   { useNewUrlParser: true },
-  () => {
-    console.log('Connected to DB');
+  // () => {
+  //   console.log('Connected to DB');}
+)
+  .then(() => {
+    console.log('Connected to DB')
+  })
+  .catch((error) => {
+    console.log("mongodb Warning", error);
   });
-
 
 app.listen(5000, () => {
   console.log('Server running at port 5000');
