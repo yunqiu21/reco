@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import sample from './sample.jpg';
-import sample_drink from './drinks_sample.jpg'
+import sample from './images/sample.jpg';
+import sample_drink from './images/drinks_sample.jpg';
+import background from './images/background.jpg'
 
 class Post extends React.Component {
   constructor(props, image_name = sample) {
@@ -9,7 +10,8 @@ class Post extends React.Component {
     this.state = {
       likes: 0,
       category: null,
-      image: image_name,
+      url: sample,
+      user: "anonymous",
     }
   }
   getTitle() {
@@ -18,7 +20,7 @@ class Post extends React.Component {
   render() {
     return (
       <div className="post">
-        <p>{this.props.title}</p>
+        <p>{this.state.user}</p>
         <img
           src={this.props.url}
           alt="testing"
@@ -59,8 +61,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      foods: [new Post('sample')],
-      drinks: [],
+      //foods: [],
+      //drinks: [],
       showFoods: true,
       showDrinks: true,
       postArr: [],
@@ -80,7 +82,7 @@ class App extends React.Component {
 
   addNewPost(title, url, description) {
     // tbd: upload currently add to foods.
-    let posts = this.state.foods;
+    let posts = this.state.postArr;
     posts.unshift({
       title: title,
       url: url,
@@ -92,13 +94,21 @@ class App extends React.Component {
   }
 
   handleSearch() {
-    const posts = this.state.foods;
+    const posts = this.state.postArr;
     console.log(document.getElementById("search-input").value);
     const toSearch = document.getElementById("search-input").value;
     const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
     this.setState({
       postArr: results,
     })
+  }
+
+  filter_foods(){
+
+  }
+
+  filter_drinks(){
+
   }
 
   render() {
@@ -109,12 +119,10 @@ class App extends React.Component {
         <button className="upload-button" onClick={() => this.addNewPost("sample", sample, "sample picture")} >
           Upload
         </button>
-        <button className="upload-button"
-          onClick={() => this.setState({ postArr: this.state.foods })} >
+        <button className="upload-button">
           Food
         </button>
-        <button className="upload-button"
-          onClick={() => this.setState({ postArr: this.state.drinks })} >
+        <button className="upload-button">
           Drinks
         </button>
         {this.renderPosts(this.state.postArr)}
