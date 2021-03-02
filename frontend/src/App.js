@@ -105,6 +105,7 @@ class App extends React.Component {
     return (
       <div>
         <SearchBox handleSearch={() => this.handleSearch()} />
+        <PostList />
         <button className="upload-button" onClick={() => this.addNewPost("sample", sample, "sample picture")} >
           Upload
         </button>
@@ -117,7 +118,7 @@ class App extends React.Component {
           Drinks
         </button>
         {this.renderPosts(this.state.postArr)}
-        <PostList />
+
       </div>
     );
   }

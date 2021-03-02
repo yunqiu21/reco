@@ -9,17 +9,27 @@ export default class PostList extends React.Component {
         }
     }
     handleClick = () => {
-        axios.get("/posts").then(response => {
-            console.log({ response });
-        });
+        axios.get("/posts").then(response => this.handleResponse(response));
     };
+
+    handleResponse = (response) => {
+        let posts = this.state.posts;
+        console.log(posts);
+        console.log(response.data);
+        response.data.forEach(element => {
+            posts = posts.concat(element.title);
+        });
+        this.setState({
+            posts: posts
+        })
+    }
 
     render() {
         return (
             <div className="post-list">
                 <button onClick={this.handleClick}>Fetch!</button>
                 <p>
-                    List of posts: {this.state.posts}
+                    Title of first post: {this.state.posts[0]}
                 </p>
             </div>
         )
