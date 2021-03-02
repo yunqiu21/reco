@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import sample from './sample.jpg';
+import PostList from './PostList';
 
 class Post extends React.Component {
   constructor(props) {
@@ -116,6 +117,7 @@ class App extends React.Component {
           Drinks
         </button>
         {this.renderPosts(this.state.postArr)}
+        <PostList />
       </div>
     );
   }

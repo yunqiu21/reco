@@ -22,13 +22,13 @@ app.get('/', (req, res) => {
 
 //Connect to DB
 mongoose.connect(
-    process.env.DB_CONNECTION, 
-    {useNewUrlParser: true},
-    () => {
+  process.env.DB_CONNECTION,
+  { useNewUrlParser: true },
+  () => {
     console.log('Connected to DB');
-});
+  });
 
 
 app.listen(5000, () => {
-    console.log('Server running at port 5000');
-  });
+  console.log('Server running at port 5000');
+});
