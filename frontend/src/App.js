@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   handleFetch = () => {
-    axios.get("/posts").then(response => this.handleResponse(response));
+    axios.get(`/posts`).then(response => this.handleResponse(response));
   };
 
   handleResponse = (response) => {
@@ -31,25 +31,31 @@ class App extends React.Component {
     console.log(posts);
     console.log(response.data);
     const newPosts = response.data.map(element => {
-      const postID = element._id;
-      const postAuthor = element.author;
-      const postTitle = element.title;
-      const postDescription = element.description;
-      const postDate = element.date;
-      const postLike = element.like;
       const post = {
-        "id": postID,
-        "author": postAuthor,
-        "title": postTitle,
-        "description": postDescription,
-        "date": postDate,
-        "like": postLike
+        "id": element._id,
+        "author": element.author,
+        "title": element.title,
+        "description": element.description,
+        "date": element.date,
+        "like": element.like
       }
       return post;
     });
     this.setState({
       posts: newPosts,
       postArr: newPosts
+    })
+  }
+
+  handleLike(i) {
+    let newPosts = [...this.state.posts];
+    let post = newPosts[i];
+    post.like = post.like + 1;
+
+    axios.patch(`/posts/${post.id}`, { "like": post.like })
+      .catch(err => console.log(err.response.data));
+    this.setState({
+      posts: newPosts
     })
   }
 
@@ -70,6 +76,7 @@ class App extends React.Component {
         <SearchBox handleSearch={() => this.handleSearch()} />
         <Navbar />
         <PostList handleFetch={() => this.handleFetch()}
+          handleLike={(i) => this.handleLike(i)}
           postArr={this.state.postArr} />
       </div>
     );

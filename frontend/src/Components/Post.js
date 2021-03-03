@@ -9,6 +9,10 @@ export default class Post extends React.Component {
             category: null
         }
     }
+    handleLike() {
+        const like = this.state.like;
+        this.setState({ like: like + 1 });
+    }
     render() {
         return (
             <div className="post">
@@ -17,12 +21,14 @@ export default class Post extends React.Component {
                     alt="testing">
                 </img>
                 <h3>{this.props.title}</h3>
-                <p>{this.props.author}</p>
                 <p>{this.props.description}</p>
-                <button className="like-button">
-                    <p>Like</p>
-                    <p>{this.props.like}</p>
-                </button>
+                <span className="author">{this.props.author}</span>
+                <div className="like-container">
+                    <button className="like-button" onClick={(i) => this.props.handleLike(i)}>
+                        Like!
+                    </button>
+                    <span>{this.props.like}</span>
+                </div>
             </div>
         )
     }
