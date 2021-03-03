@@ -34,13 +34,11 @@ function Upload() {
     }
 
     return (
-        <div>
+        <div className="button-container">
             <button className="button" type="button" onClick={() => setButtonPopup(true)}>
                 Upload
             </button>
             <Popup trigger={buttonPopup} setTrigger={setButtonPopup} handleSubmit={handleSubmit} />
-
-
         </div>
     )
 }

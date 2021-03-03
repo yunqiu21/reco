@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBox from './Searchbox';
+// import SearchBox from './Searchbox';
 import Upload from './Upload';
 
 export default class Navbar extends React.Component {
@@ -12,8 +12,8 @@ export default class Navbar extends React.Component {
 
     render() {
         return (
-            <div className="search" >
-                <SearchBox handleSearch={() => this.props.handleSearch()} />
+            <div>
+
                 <Upload />
                 <button className="button" type="button" onClick={this.props.filter_food}>
                     Food
