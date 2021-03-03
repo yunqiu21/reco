@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Post from './Post';
 
 export default class PostList extends React.Component {
     constructor(props) {
@@ -28,9 +29,7 @@ export default class PostList extends React.Component {
         return (
             <div className="post-list">
                 <button onClick={this.handleClick}>Fetch!</button>
-                <p>
-                    Title of first post: {this.state.posts[0]}
-                </p>
+                <Post/>
             </div>
         )
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Upload from './Upload';
+
 export default class SearchBox extends React.Component {
     constructor(props) {
         super(props)
@@ -17,21 +18,13 @@ export default class SearchBox extends React.Component {
                         type="search"
                         placeholder="Type here to search for a topic"
                     />
-                    <button className="button" type="button" onClick={this.props.handleSearch}>
+                    <button className="search-button" type="button" onClick={this.props.handleSearch}>
                         Search
-                    </button>
-                    <Upload />
-                    {/* <button className="button" type="button" onClick={this.props.addNewPost}>
-                        Upload
-                    </button> */}
-                    <button className="button" type="button" onClick={this.props.filter_food}>
-                        Food
-                    </button>
-                    <button className="button" type="button" onClick={this.props.filter_drinks}>
-                        Drinks
                     </button>
                 </form>
             </div>
         );
     }
 }
+
+

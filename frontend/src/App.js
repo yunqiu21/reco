@@ -1,57 +1,11 @@
 import React from 'react';
 import './App.css';
 import sample from './sample.jpg';
+import Post from './Components/Post'
+import Navbar from './Components/Navbar'
 import axios from "axios";
-class Post extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      likes: 0,
-      category: null,
-    }
-  }
-  getTitle() {
-    return this.state.title;
-  }
-  render() {
-    return (
-      <div className="post">
-        <p>{this.props.title}</p>
-        <img
-          src={this.props.url}
-          alt="testing"
-        />
-        <p>{this.props.description}</p>
-      </div>
-    )
-  }
-}
+import PostList from './Components/PostList';
 
-class SearchBox extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      testing: [],
-    }
-  }
-
-  render() {
-    return (
-      <div className="search" >
-        <form className="search-form">
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Type here to search for a topic"
-          />
-          <button className="search-button" type="button" onClick={this.props.handleSearch}>
-            Search
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -100,22 +54,10 @@ class App extends React.Component {
   }
 
   render() {
-    //tbd: currently displays foods.
     return (
       <div>
-        <SearchBox handleSearch={() => this.handleSearch()} />
-        <button className="upload-button" onClick={() => this.addNewPost("sample", sample, "sample picture")} >
-          Upload
-        </button>
-        <button className="upload-button"
-          onClick={() => this.setState({ postArr: this.state.foods })} >
-          Food
-        </button>
-        <button className="upload-button"
-          onClick={() => this.setState({ postArr: this.state.drinks })} >
-          Drinks
-        </button>
-        {this.renderPosts(this.state.postArr)}
+        <Navbar handleSearch={()=>this.handleSearch()}/>
+        <PostList/>
       </div>
     );
   }

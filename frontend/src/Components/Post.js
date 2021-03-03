@@ -5,7 +5,7 @@ export default class Post extends React.Component {
         super(props)
         this.state = {
             like: 0,
-            category: ""
+            category: null
         }
     }
     render() {
