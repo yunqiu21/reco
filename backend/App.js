@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const postsRoutes = require('./route/posts');
 
 app.use('/posts', postsRoutes);
-
+app.use('/uploads', express.static('uploads'));
 //routes
 app.get('/', (req, res) => {
   res.send('Hello, world!');

@@ -13,6 +13,10 @@ const PostSchema = mongoose.Schema({
         type: String,
         required : true
     },
+    uploadImage:{
+        type: String, 
+        required: false
+    },
     date: {
         type: Date,
         default : Date.now

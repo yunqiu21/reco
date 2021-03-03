@@ -2,6 +2,33 @@ const express = require('express');
 const { reset } = require('nodemon');
 const router = express.Router();
 const Post = require('../models/Post');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads/')
+    },
+    filename: function(req, file, cb){
+        cb(null, file.originalname)
+    }
+});
+
+//function that selects what type of file can be uploaded
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'||file.mimetype === 'image/jpg') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  };
+
+//initialize multer , storing all file in this Path
+const upload = multer({
+    storage: storage, 
+    limits:{fileSize: 1024*1024*10},
+    fileFilter: fileFilter
+});
 
 //GET BACK ALL POSTS
 router.get('/', async (req, res) => {
@@ -20,11 +47,13 @@ router.get('/specific', async (req, res) => {
 });
 
 //SUBMIT A POST
-router.post('/', async (req, res) => {
+router.post('/', upload.single('uploadImage'), async (req, res) => {  //single means only getting one file
+    //console.log(req.file);
     const post = new Post({
         title: req.body.title,
         author: req.body.author,
-        description: req.body.description
+        description: req.body.description,
+        uploadImage: req.file.path
     })
     try {
         const savedPost = await post.save()  //save to data base
