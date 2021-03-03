@@ -6,9 +6,10 @@ const app = express();
 app.use(cors());
 require('dotenv/config');
 
+app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json());
 
-
+ 
 //import routes
 const postsRoutes = require('./route/posts');
 
@@ -22,18 +23,16 @@ app.get('/', (req, res) => {
 
 //Connect to DB
 mongoose.connect(
-  process.env.DB_CONNECTION,
-  { useNewUrlParser: true },
-  // () => {
-  //   console.log('Connected to DB');}
-)
-  .then(() => {
-    console.log('Connected to DB')
-  })
-  .catch((error) => {
-    console.log("mongodb Warning", error);
-  });
+    "mongodb+srv://jason1027:jason1027@reco.tbhpq.mongodb.net/Reco?retryWrites=true&w=majority",
+    {
+      useUnifiedTopology: true, 
+      useNewUrlParser: true
+    },
+    () => {
+    console.log('Connected to DB');
+});
+
 
 app.listen(5000, () => {
-  console.log('Server running at port 5000');
-});
+    console.log('Server running at port 5000');
+  });

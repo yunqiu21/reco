@@ -5,6 +5,13 @@ const PostSchema = mongoose.Schema({
         type: String,
         required : true
     },
+<<<<<<< HEAD
+=======
+    author:{
+        type: String,
+        required: true
+    },
+>>>>>>> backend_Pan
     description:{
         type: String,
         required : true
@@ -13,8 +20,19 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default : Date.now
     },
+<<<<<<< HEAD
 
 })
 
 
 module.exports = mongoose.model('Posts', PostSchema);
+=======
+    like: {
+        type: Number,
+        default: 0
+    },
+})
+
+
+module.exports = mongoose.model('Posts', PostSchema);
+>>>>>>> backend_Pan
