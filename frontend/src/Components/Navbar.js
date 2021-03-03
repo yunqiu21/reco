@@ -1,5 +1,5 @@
 import React from 'react';
-import Upload from './Upload';
+
 export default class SearchBox extends React.Component {
     constructor(props) {
         super(props)
@@ -20,10 +20,9 @@ export default class SearchBox extends React.Component {
                     <button className="button" type="button" onClick={this.props.handleSearch}>
                         Search
                     </button>
-                    <Upload />
-                    {/* <button className="button" type="button" onClick={this.props.addNewPost}>
+                    <button className="button" type="button" onClick={this.props.addNewPost}>
                         Upload
-                    </button> */}
+                    </button>
                     <button className="button" type="button" onClick={this.props.filter_food}>
                         Food
                     </button>
