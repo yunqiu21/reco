@@ -13,16 +13,25 @@ import Navbar from './Components/Navbar'
 import PostList from './Components/PostList';
 import SearchBox from './Components/Searchbox'
 
-function App(){
-  return(
+function App() {
+  const handleSearch = () => {
+    const posts = this.state.posts;
+    console.log(document.getElementById("search-input").value);
+    const toSearch = document.getElementById("search-input").value;
+    const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
+    this.setState({
+      postArr: results,
+    })
+  }
+  return (
     <Router>
       <div className="App">
         <nav>
-          <Link to = "/" className="logo"><h1>RECO</h1></Link>
-          <SearchBox handleSearch={() => this.handleSearch()} />
+          <Link to="/" className="logo"><h1>RECO</h1></Link>
+          <SearchBox handleSearch={() => handleSearch()} />
           <Navbar />
-          <Link to = "/user" ><button className="button">
-              My Account
+          <Link to="/user" ><button className="button">
+            My Account
             </button>
           </Link>
         </nav>

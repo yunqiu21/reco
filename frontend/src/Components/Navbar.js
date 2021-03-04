@@ -1,6 +1,7 @@
 import React from 'react';
 // import SearchBox from './Searchbox';
 import Upload from './Upload';
+import './Navbar.css';
 
 export default class Navbar extends React.Component {
     constructor(props) {
@@ -15,12 +16,16 @@ export default class Navbar extends React.Component {
             <div>
 
                 <Upload />
-                <button className="button" type="button" onClick={this.props.filter_food}>
-                    Food
-                    </button>
-                <button className="button" type="button" onClick={this.props.filter_drinks}>
-                    Drinks
-                    </button>
+                <select className="choose-category" name="Category" id="input-category">
+                    <option value="" hidden>Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Drink">Drink</option>
+                    <option value="Movie">Movie</option>
+                    <option value="Music">Music</option>
+                    <option value="Makeup">Makeup</option>
+                    <option value="Shoe">Shoe</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
         );
     }
