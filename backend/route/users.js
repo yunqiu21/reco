@@ -47,9 +47,9 @@ router.patch('/:userID', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const data = await User.findOne({
-            username: user.username,
-            password: user.password
-        })
+            username: req.body.username,
+            password: req.body.password
+        });
         if(!data){
             res.status(400).json({message: "Invalid password or username"});
         }else{
