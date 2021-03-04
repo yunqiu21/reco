@@ -45,19 +45,15 @@ router.patch('/:userID', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-	const user = new User({
-        username: req.body.username,
-        password: req.body.password
-    })
     try {
         const data = await User.findOne({
             username: user.username,
             password: user.password
         })
         if(!data){
-            res.status(400).json({message:"Invalid password or username"});
+            res.status(400).json({message: "Invalid password or username"});
         }else{
-            res.status(200).json({message:"Success"});
+            res.status(200).json({message: "Success"});
         }
     } catch (err) {
         res.json({ message: err });
@@ -75,7 +71,7 @@ router.post('/register', async (req, res) => {
             username: user.username
         });
         if (data){
-            res.status(400).json({message:"Username exist"});
+            res.status(400).json({message: "Username exist"});
         } else {
             const savedUser = await user.save();
             res.json(savedUser);
