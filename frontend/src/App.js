@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import "./App.css"
 
 import Home from "./Home"
 import User from "./Components/User"
@@ -17,7 +18,7 @@ function App(){
     <Router>
       <div className="App">
         <nav>
-          <Link to = "/"><h1>RECO</h1></Link>
+          <Link to = "/" className="logo"><h1>RECO</h1></Link>
           <SearchBox handleSearch={() => this.handleSearch()} />
           <Navbar />
           <Link to = "/user" ><button className="button">
