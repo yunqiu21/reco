@@ -2,17 +2,8 @@ import React from 'react';
 import './Home.css';
 // import sample from './sample.jpg';
 // import Post from './Components/Post'
-import Navbar from './Components/Navbar'
 import PostList from './Components/PostList';
-import SearchBox from './Components/Searchbox'
-import Navigation from './Components/navigation'
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
 class Home extends React.Component {
   constructor(props) {
@@ -78,28 +69,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Router>
         <div>
-          <nav>
-            <h1>RECO</h1>
-            <SearchBox handleSearch={() => this.handleSearch()} />
-            <Navbar />
-            <Link to="/navigation">
-              <button className="button">
-                My Account
-              </button>
-            </Link>
-          </nav>
-
           <PostList handleFetch={() => this.handleFetch()}
             handleLike={(i) => this.handleLike(i)}
             postArr={this.state.postArr} />
-
-          <Switch>
-            <Route path="/navigation" Component={Navigation}/>
-          </Switch>
         </div>
-      </Router>
     );
   }
 }
