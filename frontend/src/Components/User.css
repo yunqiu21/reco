@@ -1,0 +1,41 @@
+.profile{
+  color: white;
+  display: grid;
+
+  font-family: 'Oswald', sans-serif;
+}
+
+.profile_pic{
+  position: fixed;
+  right: 40%;
+  top: 20%;
+  height: 450px;
+  width: 450px;
+  display: fixed;
+  left: 60%
+}
+.text{
+  border: white;
+  border-style: solid;
+  position: fixed;
+  text-align: center;
+  width: 500px;
+  height: 450px;
+  right: 50%;
+  top: 20%;
+}
+
+.button2{
+  border-radius: 5px;
+  margin-top: 30px;
+  height: 50px;
+  width: 150px;
+  font-size: large;
+  background-color: rgba(202, 192, 207, 0);
+  border-style: hidden;
+  color: white ;
+}
+
+.controlPanel{
+  display: inline-grid;
+}
