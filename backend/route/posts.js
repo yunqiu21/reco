@@ -82,9 +82,9 @@ router.post("/search", async (req, res) => {
         });
         const allPosts = await Post.find({ $or: allQueries })
         if (!allPosts || allPosts.length === 0) {
-            res.status(400).send({ message: "No post was found" })
+            res.status(400).json({ message: "No post was found" })
         }
-        res.status(200).send(allPosts)
+        res.status(200).json(allPosts)
     } catch {
         res.json({ message: err });
     }
