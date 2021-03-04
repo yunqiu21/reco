@@ -56,7 +56,6 @@ router.delete('/:postID', async (req, res) => {
 })
 
 //UPDATE A POST
-//DELETE A SPECIFIC POST
 router.patch('/:postID', async (req, res) => {
     try {
         const updatedPost = await Post.updateOne(
@@ -89,6 +88,5 @@ router.post("/search", async (req, res) => {
         res.json({ message: err });
     }
 })
-
 
 module.exports = router;
