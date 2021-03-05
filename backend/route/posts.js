@@ -24,7 +24,8 @@ router.post('/', async (req, res) => {
     const post = new Post({
         title: req.body.title,
         author: req.body.author,
-        description: req.body.description
+        description: req.body.description,
+        category: req.body.category
     })
     try {
         const savedPost = await post.save()  //save to data base
