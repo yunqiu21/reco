@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 });
 
-//DELETE ALL
+//DELETE ALL POSTS (dangerous)
 router.delete('/', async (req, res) => {
     try {
         const removedPost = await Post.remove();
