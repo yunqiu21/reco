@@ -90,14 +90,14 @@ router.post("/search", async (req, res) => {
     }
 })
 
-// Search by Category
+// SEARCH BY CATEGORY
 router.post("/category", async (req, res) => {
     try {
         const allPosts = await Task.find({category : req.body.category})
         if(!allPosts || allPosts.length === 0) {
-            res.status(400).send({error : "No post was found"})
+            res.status(400).send({message : "No post was found"})
         }
-        res.status(200).send(allPosts)
+        res.status(200).json(allPosts)
     } catch {
         res.json({ message: err });
     }
