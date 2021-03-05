@@ -1,0 +1,29 @@
+.login{
+  position: fixed;
+  height: 300px;
+  width: 600px;
+  top:30%;
+  right: 50%;
+  margin:auto;
+}
+
+
+.login_input{
+  margin-top: 30px;
+  color: white;
+  border-color: white;
+  border-style: solid;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.Transparant_button{
+  position: relative;
+  left: 70%;
+  border-style: hidden;
+  margin-right: 120px;
+  color:white;
+  font-size: 1.2rem;
+  font-family: 'RocknRoll One', sans-serif;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0);
+}
