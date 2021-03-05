@@ -15,9 +15,19 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/specific', async (req, res) => {
-    res.send('Hello, specific post!');
-});
+//DELETE ALL
+router.delete('/', async (req, res) => {
+    try {
+        const removedPost = await Post.remove();
+        res.json(removedPost);
+    } catch {
+        res.json({ message: err });
+    }
+})
+
+// router.get('/specific', async (req, res) => {
+//     res.send('Hello, specific post!');
+// });
 
 //SUBMIT A POST
 router.post('/', async (req, res) => {
@@ -91,11 +101,11 @@ router.post("/search", async (req, res) => {
 })
 
 // SEARCH BY CATEGORY
-router.post("/category", async (req, res) => {
+router.post("/:Category", async (req, res) => {
     try {
-        const allPosts = await Task.find({category : req.body.category})
+        const allPosts = await Post.find({ category: req.params.Category})
         if(!allPosts || allPosts.length === 0) {
-            res.status(400).send({message : "No post was found"})
+            res.status(400).json({message : "No post was found"})
         }
         res.status(200).json(allPosts)
     } catch {
