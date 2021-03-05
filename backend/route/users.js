@@ -21,6 +21,15 @@ router.get('/register', async (req, res) => {
     res.send('register');
 });
 
+router.get('/:userID', async (req, res) => {
+    try {
+        const getUser = await User.findOne({ _id: req.params.userID });
+        res.json(getUser);
+    } catch {
+        res.json({ message: err });
+    }
+})
+
 router.delete('/:userID', async (req, res) => {
     try {
         const removedUser = await User.remove({ _id: req.params.userID });
@@ -31,12 +40,26 @@ router.delete('/:userID', async (req, res) => {
 })
 
 //UPDATE password
-router.patch('/:userID', async (req, res) => {
+router.patch('/changePassword/:userID', async (req, res) => {
     try {
         const updatedUser = await User.updateOne(
             { _id: req.params.userID },
             {
                 $set: { password: req.body.password },
+            });
+        res.json(updatedUser);
+    } catch {
+        res.json({ message: err });
+    }
+})
+
+//UPDATE signature
+router.patch('/editSignature/:userID', async (req, res) => {
+    try {
+        const updatedUser = await User.updateOne(
+            { _id: req.params.userID },
+            {
+                $set: { signature: req.body.signature },
             });
         res.json(updatedUser);
     } catch {
