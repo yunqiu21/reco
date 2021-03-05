@@ -90,4 +90,17 @@ router.post("/search", async (req, res) => {
     }
 })
 
+// Search by Category
+router.post("/category", async (req, res) => {
+    try {
+        const allPosts = await Task.find({category : req.body.category})
+        if(!allPosts || allPosts.length === 0) {
+            res.status(400).send({error : "No post was found"})
+        }
+        res.status(200).send(allPosts)
+    } catch {
+        res.json({ message: err });
+    }
+})
+
 module.exports = router;
