@@ -3,11 +3,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const methodOverride = require('method-override');
+
 app.use(cors());
 require('dotenv/config');
 
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
  
 //import routes
