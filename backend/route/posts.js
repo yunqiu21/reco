@@ -114,9 +114,9 @@ router.post("/:Category", async (req, res) => {
 })
 
 // SEARCH BY AUTHOR
-router.post("/:Author", async (req, res) => {
+router.post("/author", async (req, res) => {
     try {
-        const allPosts = await Post.find({ author: req.params.Author});
+        const allPosts = await Post.find({ author: req.body.author});
         if(!allPosts || allPosts.length === 0) {
             res.status(400).json({message : "No post was found"});
         }
