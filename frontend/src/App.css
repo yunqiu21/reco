@@ -4,3 +4,10 @@
   left: 50px;
   text-decoration: none;
 }
+.links{
+  color: white;
+  position: relative;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'RocknRoll One', sans-serif;
+}

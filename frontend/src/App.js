@@ -12,6 +12,7 @@ import User from "./Components/User"
 import Navbar from './Components/Navbar'
 import PostList from './Components/PostList';
 import SearchBox from './Components/Searchbox'
+import Login from './Components/Login'
 
 function App() {
   const handleSearch = () => {
@@ -30,14 +31,17 @@ function App() {
           <Link to="/" className="logo"><h1>RECO</h1></Link>
           <SearchBox handleSearch={() => handleSearch()} />
           <Navbar />
-          <Link to="/user" ><button className="button">
+          <Link to="/user"  className="links">
             My Account
-            </button>
+          </Link>
+          <Link to="/login"  className="links">
+            login
           </Link>
         </nav>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/user" component={User} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </Router>
