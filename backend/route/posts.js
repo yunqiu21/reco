@@ -20,7 +20,7 @@ router.delete('/', async (req, res) => {
     try {
         const removedPost = await Post.remove();
         res.json(removedPost);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -51,7 +51,7 @@ router.get('/:postID', async (req, res) => {
     try {
         const post = await Post.findById(req.params.postID);
         res.json(post);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -61,7 +61,7 @@ router.delete('/:postID', async (req, res) => {
     try {
         const removedPost = await Post.remove({ _id: req.params.postID });
         res.json(removedPost);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -75,7 +75,7 @@ router.patch('/:postID', async (req, res) => {
                 $set: { like: req.body.like }
             });
         res.json(updatedPost);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -95,7 +95,7 @@ router.post("/search", async (req, res) => {
             res.status(400).json({ message: "No post was found" })
         }
         res.status(200).json(allPosts)
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -103,12 +103,12 @@ router.post("/search", async (req, res) => {
 // SEARCH BY CATEGORY
 router.post("/:Category", async (req, res) => {
     try {
-        const allPosts = await Post.find({ category: req.params.Category})
+        const allPosts = await Post.find({ category: req.params.Category});
         if(!allPosts || allPosts.length === 0) {
-            res.status(400).json({message : "No post was found"})
+            res.status(400).json({message : "No post was found"});
         }
-        res.status(200).json(allPosts)
-    } catch {
+        res.status(200).json(allPosts);
+    } catch (err) {
         res.json({ message: err });
     }
 })
