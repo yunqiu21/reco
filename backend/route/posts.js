@@ -113,4 +113,17 @@ router.post("/:Category", async (req, res) => {
     }
 })
 
+// SEARCH BY AUTHOR
+router.post("/:Author", async (req, res) => {
+    try {
+        const allPosts = await Post.find({ author: req.params.Author});
+        if(!allPosts || allPosts.length === 0) {
+            res.status(400).json({message : "No post was found"});
+        }
+        res.status(200).json(allPosts);
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
 module.exports = router;
