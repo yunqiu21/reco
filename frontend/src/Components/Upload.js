@@ -30,19 +30,45 @@ function Popup(props) {
 
 function Upload() {
     const [buttonPopup, setButtonPopup] = useState(false);
+
     function handleSubmit() {
         console.log(document.getElementById("input-title").value);
         console.log(document.getElementById("input-description").value);
         console.log(document.getElementById("input-category").value);
-        const toUpload = {
-            "author": "to be implemented",
-            "title": document.getElementById("input-title").value,
-            "description": document.getElementById("input-description").value,
-            "category": document.getElementById("input-category").value
+        console.log(document.getElementById("input-image").files[0]);
+
+        let formdata = new FormData();
+        formdata.append("author", "to be implemented")
+        formdata.append("title", document.getElementById("input-title").value)
+        formdata.append("description", document.getElementById("input-description").value)
+        formdata.append("category", document.getElementById("input-category").value)
+        formdata.append("image", document.getElementById("input-image").files[0])
+        for (var pair of formdata.entries()) {
+            console.log(pair[0] + " - " + pair[1]);
         }
-        axios.post("/posts", toUpload).then(request => {
-            console.log(request);
-        });
+        // const toUpload = {
+        //     "author": "to be implemented",
+        //     "title": document.getElementById("input-title").value,
+        //     "description": document.getElementById("input-description").value,
+        //     "category": document.getElementById("input-category").value
+        // }
+        // axios.post("/posts", toUpload).then(request => {
+        //     console.log(request);
+        // });      
+        axios({
+            method: "post",
+            url: "http://localhost:5000/posts",
+            data: formdata,
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
         setButtonPopup(false);
     }
 
