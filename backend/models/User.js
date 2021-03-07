@@ -13,7 +13,8 @@ const UserSchema = mongoose.Schema({
     },
     signature:{
         type: String,
-        default : "No signature"
+        required: true
+        //default : "No signature"
     },
     date: {
         type: Date,
