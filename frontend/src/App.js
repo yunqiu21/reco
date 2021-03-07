@@ -20,9 +20,9 @@ function App() {
     console.log(document.getElementById("search-input").value);
     const toSearch = document.getElementById("search-input").value;
     const results = posts.filter(post => post.title.toLowerCase().includes(toSearch.toLowerCase()));
-    this.setState({
-      postArr: results,
-    })
+    // this.setState({
+    //   postArr: results,
+    // })
   }
   return (
     <Router>
@@ -31,10 +31,10 @@ function App() {
           <Link to="/" className="logo"><h1>RECO</h1></Link>
           <SearchBox handleSearch={() => handleSearch()} />
           <Navbar />
-          <Link to="/user"  className="links">
+          <Link to="/user" className="links">
             My Account
           </Link>
-          <Link to="/login"  className="links">
+          <Link to="/login" className="links">
             login
           </Link>
         </nav>

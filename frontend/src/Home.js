@@ -36,7 +36,8 @@ class Home extends React.Component {
         "description": element.description,
         "date": element.date,
         "like": element.like,
-        "category": element.category
+        "category": element.category,
+        "imageId": element.imageId
       }
       return post;
     });

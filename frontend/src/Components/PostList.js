@@ -9,7 +9,7 @@ export default class PostList extends React.Component {
             return (
                 <Post
                     key={post.id}
-                    img={sample}
+                    img={post.imageId === undefined ? sample : `http://localhost:5000/posts/upload/${post.imageId}`}
                     title={post.title}
                     author={post.author}
                     description={post.description}
