@@ -6,7 +6,8 @@ html{
 .search-form {
   width: auto;
   height: 75px;
-  margin: 0px;
+
+  margin-top: 20px;
   background-color: black;
   background-size: cover;
 }
@@ -58,15 +59,6 @@ input:focus {
   width: 200px;
 }
 
-.upload-button {
-  border: 3px solid rgba(100, 0, 0, 0.6);
-  height: 30px;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 1rem;
-  margin: 10px;
-  font-family: 'RocknRoll One', sans-serif;
-}
 
 .button-container {
   width: auto;
@@ -74,20 +66,23 @@ input:focus {
 }
 
 .like-container{
-  position:absolute;  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position:absolute;
   bottom: 20px;
   right: 20px;
-  width: 80px;
+  width: 70px;
   height: 40px;
   font-family: 'RocknRoll One', sans-serif;
   font-size: 0.8rem;
-  
+
 }
 .like-button {
-  border-radius: 10px;  
+  border-radius: 10px;
   margin-right: 10px;
   width: 50px;
-  height: 40px;  
+  height: 40px;
   font-family: 'RocknRoll One', sans-serif;
   font-size: 0.8rem;
   background-color: rgba(214, 135, 161, 0.39);
@@ -100,4 +95,11 @@ input:focus {
 .author {
   text-align: right;
   font-style: italic;
+}
+
+.category {
+  position:absolute;
+  bottom: 30px;
+  left: 20px;
+  color: gray;
 }
