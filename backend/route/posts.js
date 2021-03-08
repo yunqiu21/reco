@@ -214,7 +214,7 @@ router.post("/:Category", async (req, res) => {
   try {
     const allPosts = await Post.find({ category: req.params.Category });
     if (!allPosts || allPosts.length === 0) {
-      res.status(400).json({ message: "No post was found" });
+      res.status(200).json({});
     }
     res.status(200).json(allPosts);
   } catch (err) {
