@@ -15,14 +15,19 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
+//import routes
+
+const usersRoutes = require('./route/users');
 
 app.use('/posts', postsRoutes);
+app.use('/users', usersRoutes);
+app.use('/search', express.static('search'));
+
 app.use('/uploads', express.static('uploads'));
 //routes
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
-
 
 //Connect to DB
 mongoose.connect(
