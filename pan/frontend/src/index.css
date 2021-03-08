@@ -1,0 +1,108 @@
+html{
+  background-image: url(./images/background2.jpg);
+  background-size: cover;
+}
+
+.search-form {
+  width: auto;
+  height: 75px;
+
+  margin-top: 20px;
+  background-color: black;
+  background-size: cover;
+}
+
+input{
+  margin-left: 300px;
+  height: 40px;
+  width: 500px;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.button {
+  display:inline;
+  border: 3px black;
+  height: 40px;
+  background-color: black;
+  font-size: 1rem;
+  color:white;
+  font-family: 'RocknRoll One', sans-serif;
+  margin: 10px;
+}
+
+.post{
+  border-radius: 15px;
+  display: inline-flex;
+  position:relative;
+  z-index: 0;
+  flex-direction: column;
+  height: 500px;
+  width: 230px;
+  margin: 12px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+  background-color: rgba(250, 250, 250, 0.8);
+}
+
+.post>img{
+  /* margin: 5px 5px; */
+  border-radius: 10px;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
+
+
+
+
+
+.button-container {
+  width: auto;
+  display: inline;
+}
+
+.like-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position:absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 40px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+
+}
+.like-button {
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 40px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+  background-color: rgba(214, 135, 161, 0.39);
+}
+
+.like-button >p {
+  margin:0 auto;
+}
+
+.author {
+  text-align: right;
+  font-style: italic;
+}
+
+.category {
+  position:absolute;
+  bottom: 30px;
+  left: 20px;
+  color: gray;
+}
