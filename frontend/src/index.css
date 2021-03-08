@@ -60,19 +60,19 @@ input:focus {
 }
 
 
-
-
-
 .button-container {
   width: auto;
   display: inline;
 }
 
 .like-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position:absolute;
   bottom: 20px;
   right: 20px;
-  width: 80px;
+  width: 70px;
   height: 40px;
   font-family: 'RocknRoll One', sans-serif;
   font-size: 0.8rem;
@@ -95,4 +95,11 @@ input:focus {
 .author {
   text-align: right;
   font-style: italic;
+}
+
+.category {
+  position:absolute;
+  bottom: 30px;
+  left: 20px;
+  color: gray;
 }
