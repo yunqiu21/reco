@@ -17,6 +17,7 @@ class Home extends React.Component {
       postArr: [],
       searchResult: [],
     }
+    this.handleFetch();
   }
 
   handleFetch = () => {
@@ -34,7 +35,8 @@ class Home extends React.Component {
         "title": element.title,
         "description": element.description,
         "date": element.date,
-        "like": element.like
+        "like": element.like,
+        "category": element.category
       }
       return post;
     });
@@ -69,11 +71,11 @@ class Home extends React.Component {
 
   render() {
     return (
-        <div>
-          <PostList handleFetch={() => this.handleFetch()}
-            handleLike={(i) => this.handleLike(i)}
-            postArr={this.state.postArr} />
-        </div>
+      <div>
+        <PostList handleFetch={() => this.handleFetch()}
+          handleLike={(i) => this.handleLike(i)}
+          postArr={this.state.postArr} />
+      </div>
     );
   }
 }

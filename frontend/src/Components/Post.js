@@ -23,7 +23,9 @@ export default class Post extends React.Component {
                 <h3>{this.props.title}</h3>
                 <p>{this.props.description}</p>
                 <span className="author">{this.props.author}</span>
+                <span className="category">#{this.props.category}</span>
                 <div className="like-container">
+
                     <button className="like-button" onClick={(i) => this.props.handleLike(i)}>
                         Like!
                     </button>

@@ -7,13 +7,14 @@ const UserSchema = mongoose.Schema({
     },
     password:{
         type: String,
-        required: true,
-        minLength: 8,
-        maxLength: 16
+        required: true
+        // minLength: 8,
+        // maxLength: 16
     },
     signature:{
         type: String,
-        default : "No signature"
+        required: true
+        //default : "No signature"
     },
     date: {
         type: Date,

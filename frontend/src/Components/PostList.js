@@ -15,6 +15,7 @@ export default class PostList extends React.Component {
                     description={post.description}
                     date={post.date}
                     like={post.like}
+                    category={post.category}
                     handleLike={() => this.props.handleLike(index)}
                 />
             )
@@ -27,7 +28,7 @@ export default class PostList extends React.Component {
     render() {
         return (
             <div className="post-list">
-                <button className="button" onClick={this.props.handleFetch}>Fetch!</button>
+                {/* <button className="button" onClick={this.props.handleFetch}>Fetch!</button> */}
                 {this.renderPosts(this.props.postArr)}
             </div>
         )

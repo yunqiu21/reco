@@ -25,7 +25,7 @@ router.get('/:userID', async (req, res) => {
     try {
         const getUser = await User.findOne({ _id: req.params.userID });
         res.json(getUser);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -34,7 +34,7 @@ router.delete('/:userID', async (req, res) => {
     try {
         const removedUser = await User.remove({ _id: req.params.userID });
         res.json(removedUser);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -48,7 +48,7 @@ router.patch('/changePassword/:userID', async (req, res) => {
                 $set: { password: req.body.password },
             });
         res.json(updatedUser);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })
@@ -62,7 +62,7 @@ router.patch('/editSignature/:userID', async (req, res) => {
                 $set: { signature: req.body.signature },
             });
         res.json(updatedUser);
-    } catch {
+    } catch (err) {
         res.json({ message: err });
     }
 })

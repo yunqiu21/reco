@@ -1,5 +1,9 @@
 import React from 'react';
+import Search from "./Search";
 // import Upload from './Upload';
+import {
+    Link, Route
+} from "react-router-dom";
 
 export default class SearchBox extends React.Component {
     constructor(props) {
@@ -18,13 +22,15 @@ export default class SearchBox extends React.Component {
                         type="search"
                         placeholder="Type here to search for a topic"
                     />
-                    <button className="button" type="button" onClick={this.props.handleSearch}>
+                    <Link to={
+                        {pathname: '/search'}
+                    } ><button id="search_button" className="button" type="button" >
                         Search
-                    </button>
+                    </button></Link>
+
                 </form>
+
             </div>
         );
     }
 }
-
-
