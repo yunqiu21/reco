@@ -1,6 +1,8 @@
 <h1>How to Run the Project Locally?</h1>
 <ol>
   <li>Clone the project from GitHub</li>
+  <li>git clone https://github.com/yunqiu21/reco.git</li>
+  <li>cd reco</li>
   <li>cd backend</li>
   <li>npm install</li>
   <li>npm start</li>
