@@ -87,22 +87,6 @@ router.get('/', async (req, res) => {
 
 });
 
-// SUBMIT A POST
-// router.post('/', async (req, res) => {  //single means only getting one file
-//   //console.log(req.file);
-//   const post = new Post({
-//     title: req.body.title,
-//     author: req.body.author,
-//     description: req.body.description,
-//     category: req.body.category
-//   })
-//   try {
-//     const savedPost = await post.save()  //save to data base
-//     res.json(savedPost);
-//   } catch (err) {
-//     res.json({ message: err });
-//   }
-// });
 
 
 //SPECIFIC POST
