@@ -42,6 +42,9 @@ router.delete('/:userID', async (req, res) => {
 
 //UPDATE password
 router.patch('/changePassword/:userID', async (req, res) => {
+    if (!req.body.password) {
+        return res.status(400).json({ message: "Incomplete data" });
+    }
     try {
         const salt = await bcrypt.genSalt(10);
         const newPassword = await bcrypt.hash(req.body.password, salt);
