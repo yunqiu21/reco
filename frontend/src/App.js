@@ -9,12 +9,13 @@ import "./App.css"
 import Home from "./Home"
 import User from "./Components/User"
 import Login from './Components/Login'
+import Register from "./Components/Register"
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
+        <nav className="navbar">
           <Link to="/reco" className="logo"><h1>RECO</h1></Link>
           <Link to="/user" className="links">
             My Account
@@ -27,6 +28,7 @@ function App() {
           <Route path="/reco" exact component={Home} />
           <Route path="/user" component={User} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
         </Switch>
       </div>
     </Router>
