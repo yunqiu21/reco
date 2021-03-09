@@ -18,6 +18,15 @@ conn.once('open', () => {
   gfs.collection('uploads');
 });
 
+//DELETE ALL POSTS (dangerous)
+router.delete('/', async (req, res) => {
+  try {
+    const removedPost = await Post.remove();
+    res.json(removedPost);
+  } catch (err) {
+    res.json({ message: err });
+  }
+})
 
 const storage = new GridFsStorage({
   url: "mongodb+srv://jason1027:jason1027@reco.tbhpq.mongodb.net/Reco?retryWrites=true&w=majority",
@@ -32,8 +41,6 @@ const storage = new GridFsStorage({
     });
   }
 });
-
-
 
 //GET ALL IMAGES
 router.get('/upload', (req, res) => {
@@ -87,23 +94,6 @@ router.get('/', async (req, res) => {
 
 });
 
-// SUBMIT A POST
-// router.post('/', async (req, res) => {  //single means only getting one file
-//   //console.log(req.file);
-//   const post = new Post({
-//     title: req.body.title,
-//     author: req.body.author,
-//     description: req.body.description,
-//     category: req.body.category
-//   })
-//   try {
-//     const savedPost = await post.save()  //save to data base
-//     res.json(savedPost);
-//   } catch (err) {
-//     res.json({ message: err });
-//   }
-// });
-
 
 //SPECIFIC POST
 router.get('/:postID', async (req, res) => {
@@ -126,7 +116,6 @@ router.delete('/:postID', async (req, res) => {
 })
 
 //UPDATE A POST
-//DELETE A SPECIFIC POST
 router.patch('/:postID', async (req, res) => {
   try {
     const updatedPost = await Post.updateOne(
@@ -160,8 +149,6 @@ router.post('/', upload.single('image'), (req, res) => {
     res.json({ message: err });
   };
 
-
-
 });
 
 
@@ -189,7 +176,7 @@ router.get('/upload/:id', (req, res) => {
 });
 
 
-//DELETE SPECIFIC IMAGEE (by id)
+//DELETE SPECIFIC IMAGE (by id)
 router.delete('/upload/:id', (req, res) => {
   gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, GridFSBucket) => {
     if (err) {
@@ -214,13 +201,38 @@ router.post("/search", async (req, res) => {
     });
     const allPosts = await Post.find({ $or: allQueries })
     if (!allPosts || allPosts.length === 0) {
-      res.status(400).send({ message: "No post was found" })
+      res.status(400).json({ message: "No post was found" })
     }
-    res.status(200).send(allPosts)
-  } catch {
+    res.status(200).json(allPosts)
+  } catch (err) {
     res.json({ message: err });
   }
 })
 
+// SEARCH BY CATEGORY
+router.post("/:Category", async (req, res) => {
+  try {
+    const allPosts = await Post.find({ category: req.params.Category });
+    if (!allPosts || allPosts.length === 0) {
+      res.status(200).json({});
+    }
+    res.status(200).json(allPosts);
+  } catch (err) {
+    res.json({ message: err });
+  }
+})
+
+// SEARCH BY AUTHOR
+router.post("/author", async (req, res) => {
+  try {
+    const allPosts = await Post.find({ author: req.body.author });
+    if (!allPosts || allPosts.length === 0) {
+      res.status(400).json({ message: "No post was found" });
+    }
+    res.status(200).json(allPosts);
+  } catch (err) {
+    res.json({ message: err });
+  }
+})
 
 module.exports = router;

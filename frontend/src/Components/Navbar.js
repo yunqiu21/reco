@@ -16,7 +16,7 @@ export default class Navbar extends React.Component {
             <div>
 
                 <Upload />
-                <select className="choose-category" name="Category" id="input-category">
+                <select className="choose-category" name="Category" id="input-category" onClick={this.props.handleCategory}>
                     <option value="" hidden>Category</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>

@@ -11,3 +11,7 @@
   text-decoration: none;
   font-family: 'RocknRoll One', sans-serif;
 }
+
+.App {
+  display: inline;
+}
