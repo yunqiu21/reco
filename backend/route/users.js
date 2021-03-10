@@ -21,9 +21,9 @@ router.get('/register', async (req, res) => {
     res.send('register');
 });
 
-router.get('/:userID', async (req, res) => {
+router.get('/getCurrentUser', async (req, res) => {
     try {
-        const getUser = await User.findOne({ _id: req.params.userID });
+        const getUser = await User.findOne({ _id: "604826183083612450744926" });
         res.json(getUser);
     } catch (err) {
         res.json({ message: err });
@@ -53,6 +53,20 @@ router.patch('/changePassword/:userID', async (req, res) => {
     }
 })
 
+//UPDATE the user logged in
+router.patch('/setCurrentUser', async (req, res) => {
+    try {
+        const updatedUser = await User.updateOne(
+            { _id: "604826183083612450744926" },
+            {
+                $set: { username: req.body.username },
+            });
+        res.json(updatedUser);
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
 //UPDATE signature
 router.patch('/editSignature/:userID', async (req, res) => {
     try {
@@ -73,10 +87,10 @@ router.post('/login', async (req, res) => {
             username: req.body.username,
             password: req.body.password
         });
-        if(!data){
-            res.status(400).json({message: "Invalid password or username"});
-        }else{
-            res.status(200).json({message: "Success"});
+        if (!data) {
+            res.status(400).json({ message: "Invalid password or username" });
+        } else {
+            res.status(200).json({ message: "Success" });
         }
     } catch (err) {
         res.json({ message: err });
@@ -84,17 +98,17 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-	const user = new User({
+    const user = new User({
         username: req.body.username,
         password: req.body.password,
-       signature: req.body.signature
+        signature: req.body.signature
     })
     try {
         const data = await User.findOne({
             username: user.username
         });
-        if (data){
-            res.status(400).json({message: "Username exists"});
+        if (data) {
+            res.status(400).json({ message: "Username exists" });
         } else {
             const savedUser = await user.save();
             res.json(savedUser);

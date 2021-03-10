@@ -9,8 +9,8 @@ function Popup(props) {
         <div className="popup">
             <div className="popup-inner">
                 <button className="close" onClick={() => props.setTrigger(false)}>Close</button>
-                <input id="input-title" className="upload-form" type="text" placeholder="Title"></input>
-                <input id="input-description" className="upload-form" type="text" placeholder="Description"></input>
+                <input id="input-title" className="upload-form" type="text" placeholder="Title (max 20 characters)"></input>
+                <input id="input-description" className="upload-form" type="text" placeholder="Description (max 100 characters)"></input>
                 <select className="upload-category" name="Category" id="input-category">
                     <option value="" hidden>Please Choose a Category</option>
                     <option value="Food">Food</option>
@@ -30,15 +30,18 @@ function Popup(props) {
 
 function Upload() {
     const [buttonPopup, setButtonPopup] = useState(false);
-
     function handleSubmit() {
+        let username;
         console.log(document.getElementById("input-title").value);
         console.log(document.getElementById("input-description").value);
         console.log(document.getElementById("input-category").value);
         console.log(document.getElementById("input-image").files[0]);
-
+        axios.get("http://localhost:5000/users/getCurrentUser").then(response => {
+            username = response.data.username;
+            console.log(username);
+        })
         let formdata = new FormData();
-        formdata.append("author", "to be implemented")
+        formdata.append("author", username)
         formdata.append("title", document.getElementById("input-title").value)
         formdata.append("description", document.getElementById("input-description").value)
         formdata.append("category", document.getElementById("input-category").value)
@@ -46,15 +49,7 @@ function Upload() {
         for (var pair of formdata.entries()) {
             console.log(pair[0] + " - " + pair[1]);
         }
-        // const toUpload = {
-        //     "author": "to be implemented",
-        //     "title": document.getElementById("input-title").value,
-        //     "description": document.getElementById("input-description").value,
-        //     "category": document.getElementById("input-category").value
-        // }
-        // axios.post("/posts", toUpload).then(request => {
-        //     console.log(request);
-        // });      
+
         axios({
             method: "post",
             url: "http://localhost:5000/posts",

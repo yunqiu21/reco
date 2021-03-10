@@ -13,8 +13,8 @@ function User(props) {
         <h2>I am so tired :(</h2>
         <div className="controlPanel">
           <button className="button2">My Posts</button>
-          <button className="button2">My favorites</button>
-          <button className="button2">Edit profile </button>
+          <button className="button2">My Favorites</button>
+          <button className="button2">Edit Profile </button>
         </div>
       </div>
     </div>
