@@ -2,8 +2,16 @@ const express = require('express');
 const { reset } = require('nodemon');
 const router = express.Router();
 const User = require('../models/User');
+const jwt= require('jsonwebtoken')
+const session = require('express-session')
+
 
 router.get('/', async (req, res) => {
+  //test to see if the session is working
+  //  req.session.username = "Eric"
+  //  var user = req.session.username;
+    //res.json( user)
+
     try {
         const users = await User.find();
         res.json(users);
@@ -23,7 +31,7 @@ router.get('/register', async (req, res) => {
 
 router.get('/getCurrentUser', async (req, res) => {
     try {
-        const getUser = await User.findOne({ _id: "604826183083612450744926" });
+        const getUser = req.session.username;
         res.json(getUser);
     } catch (err) {
         res.json({ message: err });
@@ -82,16 +90,17 @@ router.patch('/editSignature/:userID', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    //var sess = req.session;
     try {
         const data = await User.findOne({
             username: req.body.username,
             password: req.body.password
         });
         if (!data) {
-            res.status(400).json({ message: "Invalid password or username" });
-        } else {
-            res.status(200).json({ message: "Success" });
+          return res.status(400).json({ message: "Invalid password or username" });
         }
+      //  req.session.username = req.body.username;
+        res.status(200).json({ message: "Success" });
     } catch (err) {
         res.json({ message: err });
     }
