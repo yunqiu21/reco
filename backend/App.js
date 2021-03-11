@@ -33,7 +33,7 @@ app.use('/uploads', express.static('uploads'));
 app.get('/', (req, res) => {
   //res.send('Hello, world!');
   if(! req.session.user){
-    req.session.user = "Unknown";
+    req.session.user = "default";
   }
   let usr = req.session.user;
   res.send('the current user is ' + usr);

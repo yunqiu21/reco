@@ -7,7 +7,7 @@ class Login extends React.Component{
     super(props);
   }
 
-  handleLogin(username, password){
+  handleLogin(){
     let User = {
       "username": document.getElementById("username").value,
       "password": document.getElementById("password").value,

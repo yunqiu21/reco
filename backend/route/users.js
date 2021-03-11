@@ -18,13 +18,14 @@ router.get('/', async (req, res) => {
 router.get('/getuser', async(req, res) => {
     console.log("user:");
     console.log(req.session.user);
-    res.send(req.session.user);
+    //res.json(req.session.user);
+    res.json("username");
 });
 
 router.get('/setuser', async(req, res) => {
     req.session.user = "Eric F"
     console.log("user set to :" + req.session.user);
-    res.send(req.session.user);
+    res.json(req.session.user);
 });
 
 
