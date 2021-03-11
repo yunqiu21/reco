@@ -17,15 +17,16 @@ router.get('/', async (req, res) => {
 
 router.get('/getuser', async(req, res) => {
     console.log("user:");
-    console.log(req.session);
+    console.log(req.session.user);
     res.send(req.session.user);
 });
 
 router.get('/setuser', async(req, res) => {
-    req.session.user = "Eric"
+    req.session.user = "Eric F"
     console.log("user set to :" + req.session.user);
     res.send(req.session.user);
 });
+
 
 router.get('/login', async (req, res) => {
     res.send('login');
