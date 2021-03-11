@@ -1,0 +1,14 @@
+.choose-category {
+    padding: 8px;
+    margin-left: 15px;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 1rem;
+}
+
+.options{
+  background-color: rgba(0,0,0,0);
+  color: black;
+}

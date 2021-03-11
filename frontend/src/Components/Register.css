@@ -1,0 +1,12 @@
+.register_button{
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  border-style: hidden;
+  margin-right: 120px;
+  color:white;
+  font-size: 1.2rem;
+  font-family: 'RocknRoll One', sans-serif;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0);
+}

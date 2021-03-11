@@ -20,6 +20,9 @@ const UserSchema = mongoose.Schema({
         type: Date,
         default : Date.now
     },
+    // imageId: {
+    //     type: String
+    // }
 })
 
 

@@ -5,6 +5,7 @@ const router = express.Router();
 const User = require('../models/User');
 
 router.get('/', async (req, res) => {
+
     try {
         const users = await User.find();
         res.json(users);
@@ -13,6 +14,7 @@ router.get('/', async (req, res) => {
     }
 
 });
+
 
 router.get('/login', async (req, res) => {
     res.send('login');
@@ -49,10 +51,11 @@ router.patch('/changePassword/:userID', async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const newPassword = await bcrypt.hash(req.body.password, salt);
         const updatedUser = await User.updateOne(
-            { _id: req.params.userID },
+            { username: req.body.username },
             {
                 $set: { password: newPassword },
             });
+            console.log("password set!");
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
@@ -63,10 +66,12 @@ router.patch('/changePassword/:userID', async (req, res) => {
 router.patch('/editSignature/:userID', async (req, res) => {
     try {
         const updatedUser = await User.updateOne(
-            { _id: req.params.userID },
+            //{ _id: req.params.userID },
+            { username: req.body.username },
             {
                 $set: { signature: req.body.signature },
             });
+        console.log(updatedUser)
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
@@ -82,7 +87,11 @@ router.post('/login', async (req, res) => {
             const validPassword = await bcrypt.compare(req.body.password,
                                                         data.password);
             if (validPassword) {
-                res.status(200).json({ message: "Valid password" });
+              //if the user input is valid, set the current user to req.session.user
+                console.log("login success!")
+              //  req.session.user = req.body.username;
+                //console.log(req.session);
+                res.status(200).json({ data });
             } else {
                 res.status(400).json({ message: "Invalid Password" });
             }
@@ -93,6 +102,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
+
     // input data should not be empty
     if (!(req.body.username && req.body.password && req.body.signature)) {
         return res.status(400).json({ message: "Incomplete data" });

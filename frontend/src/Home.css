@@ -1,7 +1,5 @@
-nav{
-  display: flex;
-  background-color: black;
+
+.filters{
+  display: inline-flex;
   align-items: center;
-  color: white;
-  justify-content: space-around;
 }

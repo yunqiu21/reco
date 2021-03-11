@@ -1,7 +1,7 @@
 .logo{
   color: white;
-  position: relative;
-  left: 50px;
+  position: fixed;
+  left: 5%;
   text-decoration: none;
 }
 .links{
@@ -14,4 +14,15 @@
 
 .App {
   display: inline;
+}
+
+nav{
+  display: flex;
+  background-color: black;
+  align-items: center;
+  color: white;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  height: 60px;
+  margin-bottom: 10px;
 }
