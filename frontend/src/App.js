@@ -9,6 +9,7 @@ import "./App.css"
 import Home from "./Home"
 import User from "./Components/User"
 import Login from './Components/Login'
+import Register from './Components/Register'
 
 function App() {
   return (
@@ -22,11 +23,15 @@ function App() {
           <Link to="/login" className="links">
             login
           </Link>
+          <Link to="/register" className="links">
+            register
+          </Link>
         </nav>
         <Switch>
           <Route path="/reco" exact component={Home} />
           <Route path="/user" component={User} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
         </Switch>
       </div>
     </Router>

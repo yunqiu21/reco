@@ -5,6 +5,7 @@ const router = express.Router();
 const User = require('../models/User');
 
 router.get('/', async (req, res) => {
+
     try {
         const users = await User.find();
         res.json(users);
@@ -12,6 +13,18 @@ router.get('/', async (req, res) => {
         res.json({ message: err });
     }
 
+});
+
+router.get('/getuser', async(req, res) => {
+    console.log("user:");
+    console.log(req.session);
+    res.send(req.session.user);
+});
+
+router.get('/setuser', async(req, res) => {
+    req.session.user = "Eric"
+    console.log("user set to :" + req.session.user);
+    res.send(req.session.user);
 });
 
 router.get('/login', async (req, res) => {
@@ -82,6 +95,10 @@ router.post('/login', async (req, res) => {
             const validPassword = await bcrypt.compare(req.body.password,
                                                         data.password);
             if (validPassword) {
+              //if the user input is valid, set the current user to req.session.user
+                console.log("login success!")
+                req.session.user = req.body.username;
+                console.log(req.session);
                 res.status(200).json({ message: "Valid password" });
             } else {
                 res.status(400).json({ message: "Invalid Password" });
@@ -93,6 +110,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
+
     // input data should not be empty
     if (!(req.body.username && req.body.password && req.body.signature)) {
         return res.status(400).json({ message: "Incomplete data" });
