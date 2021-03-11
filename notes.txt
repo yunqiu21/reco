@@ -1,7 +1,0 @@
-Todo:
-show all posts by default
-build navbar and move searchbar to navbar
-
-
-optional:
-fix background

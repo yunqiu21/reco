@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
 
 });
 
+//DELETE ALL USERS (dangerous)
+router.delete('/', async (req, res) => {
+    try {
+      const removedUser = await User.remove();
+      res.json(removedUser);
+    } catch (err) {
+      res.json({ message: err });
+    }
+  })
+
 router.get('/login', async (req, res) => {
     res.send('login');
 });
@@ -22,9 +32,9 @@ router.get('/register', async (req, res) => {
     res.send('register');
 });
 
-router.get('/:userID', async (req, res) => {
+router.get('/getCurrentUser', async (req, res) => {
     try {
-        const getUser = await User.findOne({ _id: req.params.userID });
+        const getUser = await User.findOne({ _id: "604826183083612450744926" });
         res.json(getUser);
     } catch (err) {
         res.json({ message: err });
@@ -52,6 +62,20 @@ router.patch('/changePassword/:userID', async (req, res) => {
             { _id: req.params.userID },
             {
                 $set: { password: newPassword },
+            });
+        res.json(updatedUser);
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
+//UPDATE the user logged in
+router.patch('/setCurrentUser', async (req, res) => {
+    try {
+        const updatedUser = await User.updateOne(
+            { _id: "604826183083612450744926" },
+            {
+                $set: { username: req.body.username },
             });
         res.json(updatedUser);
     } catch (err) {
@@ -107,8 +131,8 @@ router.post('/register', async (req, res) => {
         const data = await User.findOne({
             username: user.username
         });
-        if (data){
-            res.status(400).json({message: "Username exist"});
+        if (data) {
+            res.status(400).json({ message: "Username exists" });
         } else {
             // hash password with bcrypt
             const salt = await bcrypt.genSalt(10);
