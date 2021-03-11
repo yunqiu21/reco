@@ -4,35 +4,30 @@ import "./User.css"
 import eric from "../eric.jpg"
 //import axios from "axios";
 
-class User extends React.Component{
-  constructor(props){
-    super(props);
-    let user = localStorage.getItem('userInfo');
-    user = JSON.parse(user);
-    console.log(user)
-    if(localStorage.length == 0){
-      this.state = {
-        username: "you have not logged in yet!",
-        signature: "",
-      }
+function User(){
+
+    //const [User, setUser] = useState(false);
+
+
+    //user = JSON.parse(user);
+    //console.log(user)
+    let username = "you have not logged in yet!";
+    let signature = "";
+    if(localStorage.length != 0){
+      username = localStorage.getItem('username');
+      username = JSON.parse(username);
+      signature = localStorage.getItem('signature');
+      signature = JSON.parse(signature);
     }
-    else{
-      this.state = {
-        username: user.data.username,
-        signature: user.data.signature,
-      };
-    }
-  }
+    // console.log(username);
+    // console.log(signature);
 
-
-
-  render(){
     return (
       <div className="profile">
         <img src={eric} className="profile_pic" />
         <div className="text">
-          <h1 className="username">{this.state.username}</h1>
-          <h2>{this.state.signature}</h2>
+          <h1 className="username">{username}</h1>
+          <h2>{signature}</h2>
           <div className="controlPanel">
             <button className="button2">My Posts</button>
             <a className="button2" href="/changesig">change signature</a>
@@ -41,6 +36,5 @@ class User extends React.Component{
         </div>
       </div>
     );
-  }
 }
 export default User;
