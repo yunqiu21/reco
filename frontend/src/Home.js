@@ -1,9 +1,10 @@
 import React from 'react';
 import './Home.css';
-import Navbar from './Components/Navbar'
+import Catagory from './Components/Catagory'
 import PostList from './Components/PostList';
 import SearchBox from './Components/Searchbox'
 import axios from "axios";
+import Upload from './Components/Upload';
 
 class Home extends React.Component {
   constructor(props) {
@@ -83,8 +84,11 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <SearchBox handleSearch={() => this.handleSearch()} />
-        <Navbar handleCategory={() => this.handleCategory()} />
+        <div className = "filters">
+          <SearchBox handleSearch={() => this.handleSearch()} />
+          <Catagory handleCategory={() => this.handleCategory()} />
+          <Upload className = "upload"/>
+        </div>
         <PostList handleFetch={() => this.handleFetch()}
           handleLike={(i) => this.handleLike(i)}
           postArr={this.state.postArr} />
