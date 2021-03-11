@@ -40,7 +40,7 @@ function Upload() {
         let user = localStorage.getItem('userInfo');
         user = JSON.parse(user);
         let formdata = new FormData();
-        formdata.append("author", user.data.username);
+        formdata.append("author", user.username);
         formdata.append("title", document.getElementById("input-title").value);
         formdata.append("description", document.getElementById("input-description").value);
         formdata.append("category", document.getElementById("input-category").value);
