@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
 
 });
 
+//DELETE ALL USERS (dangerous)
+router.delete('/', async (req, res) => {
+    try {
+      const removedUser = await User.remove();
+      res.json(removedUser);
+    } catch (err) {
+      res.json({ message: err });
+    }
+  })
+
 router.get('/login', async (req, res) => {
     res.send('login');
 });
