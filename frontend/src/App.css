@@ -3,18 +3,31 @@
 
 .logo{
   color: white;
-  position: relative;
-  left: 3%;
-  top:2%;
+  position: fixed;
+  left: 30px;
+  top: 20px;
   text-decoration: none;
+  font-size: 1.5rem;
 }
-.links{
+.account-link{
   color: white;
-  position: relative;
+  position: fixed;
+  right: 150px;
+  top:  60px;
   font-size: 1rem;
   text-decoration: none;
   font-family: 'RocknRoll One', sans-serif;
 }
+.login-link{
+  color: white;
+  position: fixed;
+  right: 300px;
+  top:  60px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
 
 .App {
   display: inline;

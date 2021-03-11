@@ -11,13 +11,8 @@ function Popup(props) {
         <div className="popup">
             <div className="popup-inner">
                 <button className="close" onClick={() => props.setTrigger(false)}>Close</button>
-<<<<<<< HEAD
-                <input id="input-title" className="upload-form" type="text" placeholder="Title (max 20 characters)"></input>
-                <input id="input-description" className="upload-form" type="text" placeholder="Description (max 100 characters)"></input>
-=======
                 <input id="input-title" className="upload-form" type="textarea" maxLength={titleLimit} placeholder="Title"></input>
                 <input id="input-description" className="upload-form" type="textarea" maxLength={descriptionLimit} placeholder="Description"></input>
->>>>>>> cc64faa807ab5f64a6ca2270d37877a495dab397
                 <select className="upload-category" name="Category" id="input-category">
                     <option value="" hidden>Please Choose a Category</option>
                     <option value="Food">Food</option>
@@ -43,12 +38,12 @@ function Upload() {
         console.log(document.getElementById("input-description").value);
         console.log(document.getElementById("input-category").value);
         console.log(document.getElementById("input-image").files[0]);
-        axios.get("http://localhost:5000/users/getCurrentUser").then(response => {
-            username = response.data.username;
-            console.log(username);
-        })
+        // axios.get("http://localhost:5000/users/getCurrentUser").then(response => {
+        //     username = response.data.username;
+        //     console.log(username);
+        // })
         let formdata = new FormData();
-        formdata.append("author", username)
+        formdata.append("author", "Not logged in")
         formdata.append("title", document.getElementById("input-title").value)
         formdata.append("description", document.getElementById("input-description").value)
         formdata.append("category", document.getElementById("input-category").value)

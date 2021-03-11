@@ -18,10 +18,10 @@ class App extends React.Component {
         <div className="App">
           <nav className="navbar">
             <Link to="/reco" className="logo"><h1>RECO</h1></Link>
-            <Link to="/user" className="links">
+            <Link to="/user" className="account-link">
               My Account
           </Link>
-            <Link to="/login" className="links">
+            <Link to="/login" className="login-link">
               Login
           </Link>
           </nav>

@@ -13,7 +13,7 @@ export default class Navbar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="navbar">
 
                 <Upload/>
                 <select className="choose-category" name="Category" id="input-category" onChange={this.props.handleCategory}>

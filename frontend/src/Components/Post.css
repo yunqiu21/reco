@@ -1,0 +1,79 @@
+.post{
+  border-radius: 12px;
+  display: inline-flex;
+  position:relative;
+  z-index: 0;
+  flex-direction: column;
+  height: 500px;
+  width: 240px;
+  margin: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+  
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+  background-color: rgba(250, 250, 250, 0.8);
+  
+}
+
+.post-content {
+    height: 420px;
+    width: 230px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    resize: none;
+}
+
+.post-content::-webkit-scrollbar-thumb {
+  background-color: rgba(151, 151, 151, 0.452);
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;  
+}
+
+.post-content::-webkit-scrollbar {
+  width: 15px;
+}
+
+.post-content>img{
+  border-radius: 10px;
+  object-fit: cover;
+  /* height: 200px; */
+  width: 100%;
+}
+
+.like-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  width: 70px;
+  height: 40px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+
+}
+.like-button {
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 35px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 0.8rem;
+  background-color: rgba(214, 135, 161, 0.39);
+}
+
+.author {
+  text-align: right;
+  font-style: italic;
+}
+
+.category {
+  position:absolute;
+  bottom: 25px;
+  left: 20px;
+  color: gray;
+}
