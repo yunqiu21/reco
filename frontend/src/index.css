@@ -37,7 +37,7 @@ input:focus {
 }
 
 .post{
-  border-radius: 15px;
+  border-radius: 12px;
   display: inline-flex;
   position:relative;
   z-index: 0;
