@@ -11,7 +11,7 @@ class Register extends React.Component{
     let newUser = {
       "username": document.getElementById("reg_username").value,
       "password": document.getElementById("reg_password").value,
-      "signature": "test signature",
+      "signature": document.getElementById("reg_signature").value,
     };
     axios.post("http://localhost:5000/users/register", newUser)
       .then(response => console.log(response));
@@ -22,6 +22,7 @@ class Register extends React.Component{
       <form className="register">
         <input className="login_input" id="reg_username" placeholder="enter username"/>
         <input className="login_input" id="reg_password" placeholder="enter password"/>
+        <input className="login_input" id="reg_signature" placeholder="enter signature"/>
         <button className="register_button"
            onClick={() => this.handleRegistration()}>
            register

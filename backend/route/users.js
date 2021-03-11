@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/getuser', async(req, res) => {
     console.log("user:");
-    console.log(req.session.user);
+    console.log(req.session);
     //res.json(req.session.user);
     res.json("username");
 });
@@ -99,9 +99,9 @@ router.post('/login', async (req, res) => {
             if (validPassword) {
               //if the user input is valid, set the current user to req.session.user
                 console.log("login success!")
-                req.session.user = req.body.username;
-                console.log(req.session);
-                res.status(200).json({ message: "Valid password" });
+              //  req.session.user = req.body.username;
+                //console.log(req.session);
+                res.status(200).json({ data });
             } else {
                 res.status(400).json({ message: "Invalid Password" });
             }
