@@ -15,19 +15,6 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/getuser', async(req, res) => {
-    console.log("user:");
-    console.log(req.session);
-    //res.json(req.session.user);
-    res.json("username");
-});
-
-router.get('/setuser', async(req, res) => {
-    req.session.user = "Eric F"
-    console.log("user set to :" + req.session.user);
-    res.json(req.session.user);
-});
-
 
 router.get('/login', async (req, res) => {
     res.send('login');
@@ -78,10 +65,12 @@ router.patch('/changePassword/:userID', async (req, res) => {
 router.patch('/editSignature/:userID', async (req, res) => {
     try {
         const updatedUser = await User.updateOne(
-            { _id: req.params.userID },
+            //{ _id: req.params.userID },
+            { username: req.body.username },
             {
                 $set: { signature: req.body.signature },
             });
+        console.log(updatedUser)
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });

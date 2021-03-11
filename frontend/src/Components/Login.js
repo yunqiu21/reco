@@ -13,7 +13,6 @@ class Login extends React.Component{
       "password": document.getElementById("password").value,
       "signature": "test signature",
     };
-    //localStorage.setItem('username', 'Eric');
     axios.post("http://localhost:5000/users/login", User)
       .then(response => {
         let info = response.data;

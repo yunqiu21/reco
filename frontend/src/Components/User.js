@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from 'react';
 import "./User.css"
 import eric from "../eric.jpg"
 //import axios from "axios";
@@ -9,25 +10,21 @@ class User extends React.Component{
     let user = localStorage.getItem('userInfo');
     user = JSON.parse(user);
     console.log(user)
-    this.state = {
-      username: user.data.username,
-      signature: user.data.signature,
-    };
-    //this.getinfo();
+    if(localStorage.length == 0){
+      this.state = {
+        username: "you have not logged in yet!",
+        signature: "",
+      }
+    }
+    else{
+      this.state = {
+        username: user.data.username,
+        signature: user.data.signature,
+      };
+    }
   }
 
-  // getinfo(){
-  //   axios.get(`http://localhost:5000/users/getuser`).then(
-  //     (response) => {this.handleResponse(response)})
-  // }
-  //
-  // handleResponse(response){
-  //   let user = response.data;
-  //   console.log(response);
-  //   this.setState({
-  //     username: user,
-  //   });
-  // }
+
 
   render(){
     return (
@@ -38,8 +35,8 @@ class User extends React.Component{
           <h2>{this.state.signature}</h2>
           <div className="controlPanel">
             <button className="button2">My Posts</button>
-            <button className="button2">My favorites</button>
-            <button className="button2">Edit profile </button>
+            <a className="button2" href="/changesig">change signature</a>
+            <button className="button2">edit profile</button>
           </div>
         </div>
       </div>
