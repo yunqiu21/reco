@@ -1,5 +1,8 @@
 
 .filters{
+  position: fixed;
+  left: 20%;
+  top: 10%;
   display: inline-flex;
   align-items: center;
 }

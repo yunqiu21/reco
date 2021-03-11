@@ -2,10 +2,7 @@ import React from "react";
 import './Login.css'
 import axios from "axios";
 
-class Login extends React.Component{
-  constructor(props){
-    super(props);
-  }
+class Login extends React.Component {
 
   handleLogin(){
     let User = {

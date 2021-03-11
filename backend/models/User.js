@@ -3,18 +3,18 @@ const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
-        required : true
+        required: true
     },
-    password:{
+    password: {
         type: String,
         required: true
         // minLength: 8,
         // maxLength: 16
     },
-    signature:{
+    signature: {
         type: String,
-        required: true
-        //default : "No signature"
+        required: true,
+        default: "No signature"
     },
     date: {
         type: Date,

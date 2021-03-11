@@ -35,8 +35,8 @@ function App() {
           <Link to="/user" className="links">
             My Account
           </Link>
-          <Link to="/login" className="links">
-            login
+            <Link to="/login" className="links">
+              Login
           </Link>
           <Link to="/register" className="links">
             register

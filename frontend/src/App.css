@@ -1,3 +1,6 @@
+
+
+
 .logo{
   color: white;
   position: fixed;
@@ -6,11 +9,12 @@
 }
 .links{
   color: white;
-  position: relative;
+
   font-size: 1rem;
   text-decoration: none;
   font-family: 'RocknRoll One', sans-serif;
 }
+
 
 .App {
   display: inline;

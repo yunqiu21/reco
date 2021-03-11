@@ -1,11 +1,4 @@
-CS 97 Group Project
 
-Members:
-Yunqiu Han, 
-Yuqing Pan, 
-Jiexuan Fang, 
-Jason Sung, 
-Yuxiao Lu
 
 Main idea:
 We are planning to build a website called RECO that allows users to post things they want to
