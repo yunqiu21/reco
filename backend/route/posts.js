@@ -141,7 +141,7 @@ router.post('/', upload.single('image'), (req, res) => {
     category: req.body.category,
     imageId: req.file.id.toString()
   });
-
+  console.log(post);
   try {
     const savedPost = post.save()  //save to data base
     res.json(savedPost);

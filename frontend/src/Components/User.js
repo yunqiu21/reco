@@ -18,6 +18,10 @@ function User(){
     }
     console.log(username);
 
+    function logout(){
+      localStorage.clear();
+    }
+    
     return (
       <div className="profile">
         <img src={eric} className="profile_pic" />
@@ -25,7 +29,7 @@ function User(){
           <h1 className="username">{username}</h1>
           <h2>{signature}</h2>
           <div className="controlPanel">
-            <button className="button2">My Posts</button>
+            <button className="button2" onClick={() => logout()}>log out</button>
             <a className="button2" href="/changesig">change signature</a>
             <a className="button2" href="/changepwd">change password</a>
           </div>

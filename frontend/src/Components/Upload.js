@@ -65,7 +65,7 @@ function Upload() {
         })
             .then(function (response) {
                 //handle success
-                console.log(response);
+                console.log("success");
             })
             .catch(function (response) {
                 //handle error
