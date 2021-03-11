@@ -5,3 +5,13 @@ nav{
   color: white;
   justify-content: space-around;
 }
+
+.top-bar {
+  width: 100%;
+  height: 140px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background-color: black;
+}
