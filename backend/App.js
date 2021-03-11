@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const methodOverride = require('method-override');
-var session = require('express-session')
+// var session = require('express-session')
 //import routes
 const postsRoutes = require('./route/posts');
 
@@ -14,12 +14,12 @@ require('dotenv/config');
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.use(session({
-  secret: 'session_pwd&^#',
-  cookie: {
-
-  },
-}));
+// app.use(session({
+//   secret: 'session_pwd&^#',
+//   cookie: {
+//
+//   },
+// }));
 //import routes
 
 const usersRoutes = require('./route/users');
