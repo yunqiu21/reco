@@ -1,5 +1,5 @@
 import React from "react";
-import './Login.css'
+import './Login.css';
 import axios from "axios";
 
 class Login extends React.Component {
@@ -8,7 +8,6 @@ class Login extends React.Component {
   }
 
   handleLogin() {
-    console.log("here!");
     let User = {
       "username": document.getElementById("username").value,
       "password": document.getElementById("password").value,
@@ -17,7 +16,6 @@ class Login extends React.Component {
     console.log(User);
     axios.post("http://localhost:5000/users/login", User)
       .then(response => {
-        console.log(response);
         let info = response.config.data;
         console.log(info);
         localStorage.setItem('userInfo', info)
