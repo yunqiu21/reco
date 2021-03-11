@@ -41,6 +41,15 @@ router.get('/getCurrentUser', async (req, res) => {
     }
 })
 
+router.get('/:userID', async (req, res) => {
+    try {
+        const getUser = await User.findOne({ _id: req.params.userID });
+        res.json(getUser);
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
 router.delete('/:userID', async (req, res) => {
     try {
         const removedUser = await User.remove({ _id: req.params.userID });
