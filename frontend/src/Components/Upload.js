@@ -37,15 +37,17 @@ function Upload() {
         console.log(document.getElementById("input-category").value);
         console.log(document.getElementById("input-image").files[0]);
 
+        let user = localStorage.getItem('userInfo');
+        user = JSON.parse(user);
         let formdata = new FormData();
-        formdata.append("author", "to be implemented")
-        formdata.append("title", document.getElementById("input-title").value)
-        formdata.append("description", document.getElementById("input-description").value)
-        formdata.append("category", document.getElementById("input-category").value)
-        formdata.append("image", document.getElementById("input-image").files[0])
+        formdata.append("author", user.data.username);
+        formdata.append("title", document.getElementById("input-title").value);
+        formdata.append("description", document.getElementById("input-description").value);
+        formdata.append("category", document.getElementById("input-category").value);
+        formdata.append("image", document.getElementById("input-image").files[0]);
         for (var pair of formdata.entries()) {
             console.log(pair[0] + " - " + pair[1]);
-        }
+        };
         // const toUpload = {
         //     "author": "to be implemented",
         //     "title": document.getElementById("input-title").value,
@@ -54,7 +56,7 @@ function Upload() {
         // }
         // axios.post("/posts", toUpload).then(request => {
         //     console.log(request);
-        // });      
+        // });
         axios({
             method: "post",
             url: "http://localhost:5000/posts",
