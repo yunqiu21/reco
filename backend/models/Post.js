@@ -17,10 +17,6 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    category:{
-        type: String,
-        required : true
-    },
     date: {
         type: Date,
         default: Date.now
@@ -30,7 +26,7 @@ const PostSchema = mongoose.Schema({
         default: 0
     },
     imageId: {
-        type: String,
+        type: String
     }
 })
 

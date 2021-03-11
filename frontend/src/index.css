@@ -50,6 +50,8 @@ input:focus {
   font-family: 'RocknRoll One', sans-serif;
   font-size: 0.8rem;
   background-color: rgba(250, 250, 250, 0.8);
+  overflow-y: scroll;
+  resize: none;
 }
 
 .post>img{
