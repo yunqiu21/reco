@@ -3,7 +3,7 @@ import React from "react";
 import "./User.css"
 import eric from "../eric.jpg"
 //import axios from "axios";
-
+//changing the words a bit to push again.
 function User(){
 
     let user = localStorage.getItem('userInfo');
@@ -21,7 +21,7 @@ function User(){
     function logout(){
       localStorage.clear();
     }
-    
+
     return (
       <div className="profile">
         <img src={eric} className="profile_pic" />
