@@ -1,13 +1,10 @@
 import React from "react";
 import "./User.css"
-import eric from "../eric.jpg"
-
-
 
 function User(props) {
+
   return (
     <div className="profile">
-      <img src={eric} className="profile_pic" />
       <div className="text">
         <h1 className="username">Eric Fang</h1>
         <h2>I am so tired :(</h2>
