@@ -15,7 +15,8 @@ class Login extends React.Component{
     };
     axios.post("http://localhost:5000/users/login", User)
       .then(response => {
-        let info = response.data;
+        let info = response.data.data;
+        console.log(info);
         localStorage.setItem('userInfo', JSON.stringify(info))
       });
 

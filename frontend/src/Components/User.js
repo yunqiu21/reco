@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+//import { useState } from 'react';
 import "./User.css"
 import eric from "../eric.jpg"
 //import axios from "axios";
@@ -16,7 +16,7 @@ function User(){
       username = user.username;
       signature = user.signature;
     }
-
+    console.log(username);
 
     return (
       <div className="profile">
@@ -27,7 +27,7 @@ function User(){
           <div className="controlPanel">
             <button className="button2">My Posts</button>
             <a className="button2" href="/changesig">change signature</a>
-            <button className="button2">edit profile</button>
+            <a className="button2" href="/changepwd">change password</a>
           </div>
         </div>
       </div>

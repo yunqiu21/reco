@@ -11,6 +11,7 @@ import User from "./Components/User"
 import Login from './Components/Login'
 import Register from './Components/Register'
 import ChangeSig from './Components/ChangeSig'
+import ChangePWD from './Components/ChangePWD'
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/changesig" component={ChangeSig} />
+          <Route path="/changepwd" component={ChangePWD} />
         </Switch>
       </div>
     </Router>

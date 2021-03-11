@@ -51,10 +51,11 @@ router.patch('/changePassword/:userID', async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const newPassword = await bcrypt.hash(req.body.password, salt);
         const updatedUser = await User.updateOne(
-            { _id: req.params.userID },
+            { username: req.body.username },
             {
                 $set: { password: newPassword },
             });
+            console.log("password set!");
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
