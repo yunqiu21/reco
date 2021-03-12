@@ -21,6 +21,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className="top-bar"></div>
         <nav>
           <Link to="/reco" className="logo"><h1>RECO</h1></Link>
           <Link to="/user" className="account-link">

@@ -88,7 +88,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className="top-bar"></div>
+        {/* <div className="top-bar"></div> */}
         <SearchBox handleSearch={() => this.handleSearch()} />
         <Navbar handleCategory={() => this.handleCategory()} />
         <PostList handleFetch={() => this.handleFetch()}

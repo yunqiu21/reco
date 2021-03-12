@@ -1,13 +1,14 @@
 import React from "react";
 import './Register.css'
+import './Login.css'
 import axios from "axios";
 
-class Register extends React.Component{
-  constructor(props){
+class Register extends React.Component {
+  constructor(props) {
     super(props);
   }
 
-  handleRegistration(){
+  handleRegistration() {
     let newUser = {
       "username": document.getElementById("reg_username").value,
       "password": document.getElementById("reg_password").value,
@@ -15,17 +16,17 @@ class Register extends React.Component{
     };
     axios.post("http://localhost:5000/users/register", newUser)
       .then(response => console.log(response));
-    }
+  }
 
-  render(){
-    return(
+  render() {
+    return (
       <form className="register">
-        <input className="login_input" id="reg_username" placeholder="enter username"/>
-        <input className="login_input" id="reg_password" placeholder="enter password"/>
-        <input className="login_input" id="reg_signature" placeholder="enter signature"/>
+        <input className="login_input" id="reg_username" placeholder="Enter username" />
+        <input className="login_input" id="reg_password" placeholder="Enter password" />
+        <input className="login_input" id="reg_signature" placeholder="Enter signature" />
         <button className="register_button"
-           onClick={() => this.handleRegistration()}>
-           register
+          onClick={() => this.handleRegistration()}>
+          Register
         </button>
       </form>
     );
