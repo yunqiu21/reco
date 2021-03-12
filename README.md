@@ -32,6 +32,7 @@ by the keyword in the title, and all posts containing the keyword will be displa
   <li>npm install</li>
   <li>npm start</li>
   <li>Now the web app will start on http://localhost:3000</li>
+  <li>To view the intended styling, open the web app with Google Chrome, maximized window.</li>
 </ol>
 
 <h3>References:</h3>
