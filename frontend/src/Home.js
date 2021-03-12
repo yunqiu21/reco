@@ -5,6 +5,7 @@ import PostList from './Components/PostList';
 import SearchBox from './Components/Searchbox'
 import axios from "axios";
 import Upload from './Components/Upload';
+import Navbar from './Components/Navbar';
 
 class Home extends React.Component {
   constructor(props) {
@@ -66,9 +67,12 @@ class Home extends React.Component {
 
   handleSearch = () => {
     // const posts = this.state.posts;
-    console.log(document.getElementById("search-input").value);
-    const toSearch = { query: document.getElementById("search-input").value };
-    axios.post("http://localhost:5000/posts/search", toSearch)
+    // console.log(document.getElementById("search-input").value);
+    // const toSearch = { query: document.getElementById("search-input").value };
+    // axios.post("http://localhost:5000/posts/search", toSearch)
+    //   .then(response => this.handleResponse(response))
+    const input = {author: "eric"};
+    axios.post("http://localhost:5000/posts/author", input)
       .then(response => this.handleResponse(response))
   }
 
@@ -84,18 +88,14 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className = "filters">
-          <SearchBox handleSearch={() => this.handleSearch()} />
-          <Catagory handleCategory={() => this.handleCategory()} />
-          <Upload className = "upload"/>
-        </div>
+        <div className="top-bar"></div>
+        <SearchBox handleSearch={() => this.handleSearch()} />
+        <Navbar handleCategory={() => this.handleCategory()} />
         <PostList handleFetch={() => this.handleFetch()}
           handleLike={(i) => this.handleLike(i)}
-          postArr={this.state.postArr}
-          className="postlist"/>
+          postArr={this.state.postArr} />
       </div>
     );
   }
 }
-
 export default Home;

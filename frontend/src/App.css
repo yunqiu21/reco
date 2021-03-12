@@ -11,7 +11,7 @@
   color: white;
 
   z-index: 3;
-
+  right: 320px;
   top:  60px;
   font-size: 1rem;
   text-decoration: none;
@@ -21,7 +21,17 @@
   color: white;
   position: fixed;
   z-index: 3;
-  right: 300px;
+  right: 220px;
+  top:  60px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'RocknRoll One', sans-serif;
+}
+.register-link{
+  color: white;
+  position: fixed;
+  z-index: 3;
+  right: 100px;
   top:  60px;
   font-size: 1rem;
   text-decoration: none;
