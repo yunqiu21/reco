@@ -23,9 +23,6 @@ function User() {
     localStorage.clear();
   }
 
-  function logout() {
-    localStorage.clear();
-  }
 
   return (
     <div className="profile">

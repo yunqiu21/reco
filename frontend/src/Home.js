@@ -66,19 +66,20 @@ class Home extends React.Component {
 
 
   handleSearch = () => {
-    // const posts = this.state.posts;
-    // console.log(document.getElementById("search-input").value);
-    // const toSearch = { query: document.getElementById("search-input").value };
-    // axios.post("http://localhost:5000/posts/search", toSearch)
-    //   .then(response => this.handleResponse(response))
-    const input = {author: "eric"};
-    axios.post("http://localhost:5000/posts/author", input)
+    const posts = this.state.posts;
+    console.log(document.getElementById("search-input").value);
+    const toSearch = { query: document.getElementById("search-input").value };
+    axios.post("http://localhost:5000/posts/search", toSearch)
       .then(response => this.handleResponse(response))
+
   }
 
   handleCategory = () => {
-    console.log(document.getElementById("input-category").value);
     const category = document.getElementById("input-category").value;
+    if (category === "All") {
+      this.handleFetch();
+      return;
+    }
     axios.post(`http://localhost:5000/posts/${category}`)
       .then(response => this.handleResponse(response)).catch(err => {
         console.log(err);

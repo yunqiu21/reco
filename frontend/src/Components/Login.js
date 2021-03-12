@@ -19,7 +19,7 @@ class Login extends React.Component {
         let info = response.data.data;
         // console.log(info);
         localStorage.setItem('userInfo', JSON.stringify(info))
-      });
+      }).catch(err => alert("Username and password do not match!"));
 
   }
 
