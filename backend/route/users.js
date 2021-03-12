@@ -71,20 +71,16 @@ router.patch('/changePassword/:userID', async (req, res) => {
     }
 })
 
-//UPDATE the user logged in
-router.patch('/setCurrentUser', async (req, res) => {
+//DELETE ALL USERS (dangerous)
+router.delete('/', async (req, res) => {
     try {
-        const updatedUser = await User.updateOne(
-            { _id: "604826183083612450744926" },
-            {
-                $set: { username: req.body.username },
-            });
-        res.json(updatedUser);
+      const removedUser = await User.remove();
+      res.json(removedUser);
     } catch (err) {
-        res.json({ message: err });
+      res.json({ message: err });
     }
-})
-
+  })
+  
 //UPDATE signature
 router.patch('/editSignature/:userID', async (req, res) => {
     try {
