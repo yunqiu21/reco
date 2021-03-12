@@ -5,13 +5,13 @@ import axios from "axios";
 
 class Register extends React.Component {
 
-  handleRegistration() {
+  async handleRegistration() {
     let newUser = {
       "username": document.getElementById("reg_username").value,
       "password": document.getElementById("reg_password").value,
       "signature": document.getElementById("reg_signature").value,
     };
-    axios.post("http://localhost:5000/users/register", newUser)
+    await axios.post("http://localhost:5000/users/register", newUser)
       .catch(() => alert("Username exists!"));
   }
 

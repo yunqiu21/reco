@@ -4,12 +4,12 @@ import axios from "axios";
 
 class Login extends React.Component {
 
-  handleLogin() {
+  async handleLogin() {
     let User = {
       "username": document.getElementById("username").value,
       "password": document.getElementById("password").value,
     };
-    axios.post("http://localhost:5000/users/login", User)
+    await axios.post("http://localhost:5000/users/login", User)
       .then(response => {
         let info = response.data.data;
         localStorage.setItem('userInfo', JSON.stringify(info))
