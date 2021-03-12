@@ -32,6 +32,7 @@ function User(){
             <button className="button2" onClick={() => logout()}>log out</button>
             <a className="button2" href="/changesig">change signature</a>
             <a className="button2" href="/changepwd">change password</a>
+            <a className="button2" href="/myposts">my posts</a>
           </div>
         </div>
       </div>
