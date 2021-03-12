@@ -223,7 +223,7 @@ router.post("/:Category", async (req, res) => {
 })
 
 // SEARCH BY AUTHOR
-router.post("/author", async (req, res) => {
+router.post("/search/author", async (req, res) => {
   console.log("author called")
   try {
     console.log(req.body);

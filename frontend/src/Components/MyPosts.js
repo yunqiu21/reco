@@ -23,7 +23,7 @@ class MyPosts extends React.Component {
 
 
   // const toSearch = { query: "test" };
-   axios.post("http://localhost:5000/posts/author", input)
+   axios.post("http://localhost:5000/posts/search/author", input)
      .then(response => this.handleResponse(response))
   };
 
