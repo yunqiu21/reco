@@ -29,7 +29,7 @@ function User() {
 
     return (
       <div className="profile">
-        <img src={eric} className="profile_pic" />
+
         <div className="text">
           <h1 className="username">{username}</h1>
           <h2>{signature}</h2>
@@ -43,4 +43,6 @@ function User() {
       </div>
   );
 }
+
+  //<img src={eric} className="profile_pic" />
 export default User;
