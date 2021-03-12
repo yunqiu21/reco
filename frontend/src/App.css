@@ -3,13 +3,26 @@
 
 .logo{
   color: white;
-  position: fixed;
-  left: 5%;
+  z-index: 3;
+  left: 20px;
+  top: 20px;
   text-decoration: none;
 }
 .links{
   color: white;
-
+  z-index: 3;
+  right: 150px;
+  top:  60px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'RocknRoll One', sans-serif;
+}
+.login-link{
+  color: white;
+  position: fixed;
+  z-index: 3;
+  right: 300px;
+  top:  60px;
   font-size: 1rem;
   text-decoration: none;
   font-family: 'RocknRoll One', sans-serif;
