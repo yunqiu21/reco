@@ -23,19 +23,24 @@ function User() {
     localStorage.clear();
   }
 
-  return (
-    <div className="profile">
-      <img src={eric} className="profile_pic" />
-      <div className="text">
-        <h1 className="username">{username}</h1>
-        <h2>{signature}</h2>
-        <div className="controlPanel">
-          <button className="button2" onClick={() => logout()}>log out</button>
-          <a className="button2" href="/changesig">change signature</a>
-          <a className="button2" href="/changepwd">change password</a>
+    function logout(){
+      localStorage.clear();
+    }
+
+    return (
+      <div className="profile">
+        <img src={eric} className="profile_pic" />
+        <div className="text">
+          <h1 className="username">{username}</h1>
+          <h2>{signature}</h2>
+          <div className="controlPanel">
+            <button className="button2" onClick={() => logout()}>log out</button>
+            <a className="button2" href="/changesig">change signature</a>
+            <a className="button2" href="/changepwd">change password</a>
+            <a className="button2" href="/myposts">my posts</a>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 export default User;

@@ -42,10 +42,10 @@ function Upload() {
         let user = localStorage.getItem('userInfo');
         user = JSON.parse(user);
         let formdata = new FormData();
-        formdata.append("author", user.data.username);
+        formdata.append("author", user.username);
         formdata.append("title", document.getElementById("input-title").value);
         formdata.append("description", document.getElementById("input-description").value);
-        formdata.append("category", document.getElementById("input-category").value);
+        formdata.append("category", "Food");//document.getElementById("input-category").value);
         formdata.append("image", document.getElementById("input-image").files[0]);
         for (var pair of formdata.entries()) {
             console.log(pair[0] + " - " + pair[1]);
@@ -67,7 +67,7 @@ function Upload() {
         })
             .then(function (response) {
                 //handle success
-                console.log(response);
+                console.log("success");
             })
             .catch(function (response) {
                 //handle error

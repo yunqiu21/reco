@@ -12,6 +12,8 @@ import Login from './Components/Login'
 import Register from './Components/Register'
 import ChangeSig from './Components/ChangeSig'
 import ChangePWD from './Components/ChangePWD'
+import MyPosts from './Components/MyPosts'
+
 
 function App() {
 
@@ -49,6 +51,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/changesig" component={ChangeSig} />
           <Route path="/changepwd" component={ChangePWD} />
+          <Route path="/myposts" component={MyPosts} />
         </Switch>
       </div>
     </Router>

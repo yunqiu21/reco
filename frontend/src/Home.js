@@ -91,7 +91,8 @@ class Home extends React.Component {
         </div>
         <PostList handleFetch={() => this.handleFetch()}
           handleLike={(i) => this.handleLike(i)}
-          postArr={this.state.postArr} />
+          postArr={this.state.postArr}
+          className="postlist"/>
       </div>
     );
   }

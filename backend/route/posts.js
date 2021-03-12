@@ -141,7 +141,7 @@ router.post('/', upload.single('image'), (req, res) => {
     category: req.body.category,
     imageId: req.file.id.toString()
   });
-
+  console.log(post);
   try {
     const savedPost = post.save()  //save to data base
     res.json(savedPost);
@@ -225,10 +225,14 @@ router.post("/:Category", async (req, res) => {
 // SEARCH BY AUTHOR
 router.post("/author", async (req, res) => {
   try {
+    console.log(req.body);
     const allPosts = await Post.find({ author: req.body.author });
+
     if (!allPosts || allPosts.length === 0) {
+      //onsole.log("no posts were found")
       res.status(400).json({ message: "No post was found" });
     }
+  //  console.log("returning posts")
     res.status(200).json(allPosts);
   } catch (err) {
     res.json({ message: err });
