@@ -1,6 +1,6 @@
 html{
-  background-image: url(./images/background2.jpg);
-  background-color: white;
+  /*background-image: url(./images/background2.jpg);*/
+  background-color: rgb(255, 102, 102);
   background-size: cover;
 }
 
@@ -33,7 +33,7 @@ input:focus {
   display:inline;
   border: 3px black;
   height: 40px;
-  background-color: black;
+  background-color: rgba(0,0,0,0);
   font-size: 1rem;
   color:white;
   font-family: 'RocknRoll One', sans-serif;
