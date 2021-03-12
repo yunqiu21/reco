@@ -3,7 +3,7 @@
   height: 300px;
   width: 600px;
   top:30%;
-  right: 30%;
+  right: 50%;
   margin:auto;
 }
 
@@ -18,7 +18,7 @@
 
 .Transparant_button{
   position: relative;
-  left: 25%;
+  left: 70%;
   border-style: hidden;
   margin-right: 120px;
   color:white;

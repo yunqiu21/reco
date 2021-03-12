@@ -1,10 +1,10 @@
-
-.filters{
-  position: relative;
-  left: 20%;
-  top: 10%;
-  display: inline-flex;
+  
+nav{
+  display: flex;
+  background-color: black;
   align-items: center;
+  color: white;
+  justify-content: space-around;
 }
 
 .top-bar {

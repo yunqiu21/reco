@@ -1,15 +1,15 @@
-
-
-
 .logo{
   color: white;
+  position: fixed;
   z-index: 3;
-  left: 20px;
+  left: 30px;
   top: 20px;
   text-decoration: none;
+  font-size: 1.5rem;
 }
-.links{
+.account-link{
   color: white;
+  position: fixed;
   z-index: 3;
   right: 150px;
   top:  60px;
@@ -31,15 +31,4 @@
 
 .App {
   display: inline;
-}
-
-nav{
-  display: flex;
-  background-color: black;
-  align-items: center;
-  color: white;
-  justify-content: space-around;
-  padding-bottom: 10px;
-  height: 60px;
-  margin-bottom: 10px;
 }

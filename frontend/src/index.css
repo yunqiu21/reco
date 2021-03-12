@@ -5,6 +5,7 @@ html{
 }
 
 .search-form {
+  position: fixed;
   z-index: 3;
   left: 450px;
   top: 20px;
@@ -12,7 +13,8 @@ html{
   height: 75px;
 
   margin-top: 20px;
-  background-color: rgba(255, 0, 0, 0);
+  background-color: black;
+  background-size: cover;
 }
 
 input{
@@ -31,7 +33,7 @@ input:focus {
   display:inline;
   border: 3px black;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: black;
   font-size: 1rem;
   color:white;
   font-family: 'RocknRoll One', sans-serif;
