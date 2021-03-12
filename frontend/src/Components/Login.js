@@ -7,46 +7,32 @@ class Login extends React.Component {
     super(props);
   }
 
-  // handleLogin() {
-  //   let User = {
-  //     "username": document.getElementById("username").value,
-  //     "password": document.getElementById("password").value,
-  //     "signature": "test signature",
-  //   };
-  //   console.log(User);
-  //   axios.post("http://localhost:5000/users/login", User)
-  //     .then(response => {
-  //       let info = response.config.data;
-  //       console.log(info);
-  //       localStorage.setItem('userInfo', info)
-  //     });
-  // }
 
-  handleLogin(){
+  handleLogin() {
     let User = {
       "username": document.getElementById("username").value,
       "password": document.getElementById("password").value,
-      "signature": "test signature",
     };
     axios.post("http://localhost:5000/users/login", User)
       .then(response => {
+        // console.log(response);
         let info = response.data.data;
-        console.log(info);
+        // console.log(info);
         localStorage.setItem('userInfo', JSON.stringify(info))
       });
 
-    }
+  }
 
-  render(){
-    return(
+  render() {
+    return (
       <form className="login">
-        <input className="login_input" id="username" placeholder="enter username"/>
-        <input className="login_input" id="password" placeholder="enter password"/>
-        <button className="Transparant_button"
+        <input className="login_input" id="username" placeholder="Enter username" />
+        <input className="login_input" id="password" placeholder="Enter password" />
+        <button className="Transparant_button" type="button"
           onClick={() => this.handleLogin()}>
-          sign in
+          Sign In
         </button>
-        <a href = "/register" className="Transparant_button">register</a>
+        <a href="/register" className="Transparant_button">Register</a>
       </form>
     );
   }

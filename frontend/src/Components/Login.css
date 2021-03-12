@@ -3,13 +3,14 @@
   height: 300px;
   width: 600px;
   top:30%;
-  right: 50%;
+  left: 30%;
   margin:auto;
 }
 
 
 .login_input{
-  margin-top: 30px;
+  margin: 12px;
+  display: block;
   color: white;
   border-color: white;
   border-style: solid;
@@ -18,9 +19,8 @@
 
 .Transparant_button{
   position: relative;
-  left: 70%;
   border-style: hidden;
-  margin-right: 120px;
+  margin: 30px;
   color:white;
   font-size: 1.2rem;
   font-family: 'RocknRoll One', sans-serif;
