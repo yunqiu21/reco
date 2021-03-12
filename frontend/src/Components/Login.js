@@ -27,12 +27,12 @@ class Login extends React.Component {
     return (
       <form className="login">
         <input className="login_input" id="username" placeholder="Enter username" />
-        <input className="login_input" id="password" placeholder="Enter password" />
+        <input type="password" className="login_input" id="password" placeholder="Enter password" />
         <button className="Transparant_button" type="button"
           onClick={() => this.handleLogin()}>
           Sign In
         </button>
-        <a href="/register" className="Transparant_button">Register</a>
+        <a href="/register" className="Transparant_button">No Account? Go to Register</a>
       </form>
     );
   }

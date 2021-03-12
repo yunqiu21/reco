@@ -28,7 +28,7 @@ class ChangeSig extends React.Component{
   render(){
     return(
       <div>
-        <input className="login_input" id="new_sig" placeholder="enter new signature"/>
+        <input className="change" id="new_sig" placeholder="Enter New Signature"/>
         <button className="button"
           onClick={() => this.changeSig()}>
           submit

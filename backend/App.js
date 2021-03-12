@@ -27,7 +27,7 @@ app.use('/uploads', express.static('uploads'));
 //routes
 app.get('/', (req, res) => {
   //res.send('Hello, world!');
-  if(! req.session.user){
+  if (!req.session.user) {
     req.session.user = "default";
   }
   let usr = req.session.user;
@@ -36,10 +36,13 @@ app.get('/', (req, res) => {
 
 //Connect to DB
 mongoose.connect(
-  "mongodb+srv://jason1027:jason1027@reco.tbhpq.mongodb.net/Reco?retryWrites=true&w=majority",
+  "mongodb+srv://jason1027:jason1027@reco.tbhpq.mongodb.net/Reco?retryWrites=true",
   {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    writeConcern: {
+      w: "majority"
+    }
   },
   () => {
     console.log('Connected to DB');

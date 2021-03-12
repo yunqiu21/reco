@@ -17,6 +17,16 @@
   background-color: rgba(255, 0, 0, 0);
 }
 
+.change{
+  margin-top: 20%;
+  margin-left: 20%;
+  display: inline-block;
+  color: white;
+  border-color: white;
+  border-style: solid;
+  background-color: rgba(255, 0, 0, 0);  
+}
+
 .Transparant_button{
   position: relative;
   border-style: hidden;
