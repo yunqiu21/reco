@@ -34,10 +34,10 @@ function User() {
         <h1 className="username">{username}</h1>
         <q className="sig">{signature}</q>
         <div className="controlPanel">
-          <button className="button2" onClick={() => logout()}>Log Out</button>
+          <a className="button2" href="/myposts">My Posts</a>
           <a className="button2" href="/changesig">Change Signature</a>
           <a className="button2" href="/changepwd">Change Password</a>
-          <a className="button2" href="/myposts">My Posts</a>
+          <button className="button2" onClick={() => logout()}>Log Out</button>
         </div>
       </div>
     </div>
