@@ -34,3 +34,7 @@ by the keyword in the title, and all posts containing the keyword will be displa
   <li>Now the web app will start on http://localhost:3000</li>
 </ol>
 
+<h3>References:</h3>
+<a href="https://www.youtube.com/watch?v=vjf774RKrLc">Backend basics</a>
+<a href="https://www.youtube.com/watch?v=3f5Q9wDePzY&t=2713s">GridFS basics</a>
+<a href="https://www.youtube.com/watch?v=kJA9rDX7azM">Connect React to backend</a>
