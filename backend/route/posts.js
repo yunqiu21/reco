@@ -224,13 +224,14 @@ router.post("/:Category", async (req, res) => {
 
 // SEARCH BY AUTHOR
 router.post("/search/author", async (req, res) => {
+  console.log("author called")
   try {
     console.log("request:");
     console.log(req.body);
     const allPosts = await Post.find({ author: req.body.author });
 
     if (!allPosts || allPosts.length === 0) {
-      //onsole.log("no posts were found")
+      //console.log("no posts were found")
       res.status(400).json({ message: "No post was found" });
     }
     //  console.log("returning posts")

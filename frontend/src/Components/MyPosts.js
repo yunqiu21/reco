@@ -18,8 +18,13 @@ class MyPosts extends React.Component {
     user = JSON.parse(user);
     const input = { author: user.username}
     console.log(input);
-  //  axios.post(`http://localhost:5000/posts/author`, input).then((response) => this.handleResponse(response));
-    axios.get(`http://localhost:5000/posts`).then((response) => this.handleResponse(response));
+    //axios.post(`http://localhost:5000/posts/author`, {author: "eric"}).then((response) => this.handleResponse(response));
+   //axios.get(`http://localhost:5000/posts`).then((response) => this.handleResponse(response));
+
+
+  // const toSearch = { query: "test" };
+   axios.post("http://localhost:5000/posts/search/author", input)
+     .then(response => this.handleResponse(response))
   };
 
   handleResponse = (response) => {
