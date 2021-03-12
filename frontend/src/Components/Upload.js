@@ -5,12 +5,14 @@ import { useState } from 'react';
 import axios from "axios";
 
 function Popup(props) {
+    const titleLimit = 30;
+    const descriptionLimit = 200;
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
                 <button className="close" onClick={() => props.setTrigger(false)}>Close</button>
-                <input id="input-title" className="upload-form" type="text" placeholder="Title"></input>
-                <input id="input-description" className="upload-form" type="text" placeholder="Description"></input>
+                <input id="input-title" className="upload-form" type="textarea" maxLength={titleLimit} placeholder="Title"></input>
+                <input id="input-description" className="upload-form" type="textarea" maxLength={descriptionLimit} placeholder="Description"></input>
                 <select className="upload-category" name="Category" id="input-category">
                     <option value="" hidden>Please Choose a Category</option>
                     <option value="Food">Food</option>
