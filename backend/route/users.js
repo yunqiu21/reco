@@ -24,14 +24,6 @@ router.get('/register', async (req, res) => {
     res.send('register');
 });
 
-router.get('/getCurrentUser', async (req, res) => {
-    try {
-        const getUser = await User.findOne({ _id: "604826183083612450744926" });
-        res.json(getUser);
-    } catch (err) {
-        res.json({ message: err });
-    }
-})
 
 router.get('/:userID', async (req, res) => {
     try {
