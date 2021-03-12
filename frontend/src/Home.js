@@ -25,7 +25,6 @@ class Home extends React.Component {
   };
 
   handleResponse = (response) => {
-    console.log(response.data.length);
     let newPosts;
     if (response.data.length === undefined) {
       newPosts = [];
@@ -64,7 +63,6 @@ class Home extends React.Component {
 
 
   handleSearch = () => {
-    const posts = this.state.posts;
     console.log(document.getElementById("search-input").value);
     const toSearch = { query: document.getElementById("search-input").value };
     axios.post("http://localhost:5000/posts/search", toSearch)

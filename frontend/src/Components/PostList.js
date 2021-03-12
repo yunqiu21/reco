@@ -1,5 +1,5 @@
 import React from "react";
-import sample from '../images/sample.jpg'
+import sample from '../images/sample.png'
 import Post from './Post';
 
 export default class PostList extends React.Component {

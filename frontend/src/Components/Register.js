@@ -4,9 +4,6 @@ import './Login.css'
 import axios from "axios";
 
 class Register extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleRegistration() {
     let newUser = {

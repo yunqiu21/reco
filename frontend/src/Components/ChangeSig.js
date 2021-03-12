@@ -2,12 +2,9 @@ import React from "react";
 import './Login.css'
 import axios from "axios";
 
-class ChangeSig extends React.Component{
-  constructor(props){
-    super(props);
-  }
+class ChangeSig extends React.Component {
 
-  changeSig(){
+  changeSig() {
     let user = localStorage.getItem('userInfo');
     user = JSON.parse(user);
     let new_sig = document.getElementById("new_sig").value;
@@ -21,17 +18,17 @@ class ChangeSig extends React.Component{
     localStorage.setItem('userInfo', JSON.stringify(User));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        <input className="change" id="new_sig" placeholder="Enter New Signature"/>
+        <input className="change" id="new_sig" placeholder="Enter New Signature" />
         <button className="button"
           onClick={() => this.changeSig()}>
-          submit
+          Submit
         </button>
       </div>
     )
   }
 
 }
-  export default ChangeSig ;
+export default ChangeSig;

@@ -3,9 +3,6 @@ import './Login.css'
 import axios from "axios";
 
 class ChangePWD extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   change_pwd() {
     let user = localStorage.getItem('userInfo');
@@ -17,7 +14,7 @@ class ChangePWD extends React.Component {
       "signature": user.signature,
     };
     axios.patch("http://localhost:5000/users/changePassword/:userID", User);
-    
+
   }
 
   render() {
@@ -26,7 +23,7 @@ class ChangePWD extends React.Component {
         <input type="password" className="change" id="new_pwd" placeholder="Enter New Password" />
         <button className="button"
           onClick={() => this.change_pwd()}>
-          submit
+          Submit
         </button>
       </div>
     )

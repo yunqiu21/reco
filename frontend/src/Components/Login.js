@@ -3,10 +3,6 @@ import './Login.css';
 import axios from "axios";
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
 
   handleLogin() {
     let User = {
