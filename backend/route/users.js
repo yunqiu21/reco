@@ -56,7 +56,6 @@ router.patch('/changePassword/:userID', async (req, res) => {
             {
                 $set: { password: newPassword },
             });
-        console.log("password set!");
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
@@ -82,7 +81,6 @@ router.patch('/editSignature/:userID', async (req, res) => {
             {
                 $set: { signature: req.body.signature },
             });
-        console.log(updatedUser)
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
@@ -98,10 +96,6 @@ router.post('/login', async (req, res) => {
             const validPassword = await bcrypt.compare(req.body.password,
                 data.password);
             if (validPassword) {
-                //if the user input is valid, set the current user to req.session.user
-                console.log("login success!")
-                //  req.session.user = req.body.username;
-                //console.log(req.session);
                 res.status(200).json({ data });
             } else {
                 res.status(400).json({ message: "Invalid Password" });

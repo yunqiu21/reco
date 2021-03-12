@@ -1,5 +1,4 @@
 html{
-  /*background-image: url(./images/background2.jpg);*/
   background-color: rgb(99, 90, 110);
   background-size: cover;
 }
@@ -18,7 +17,6 @@ html{
 }
 
 input{
-  /* margin-left: 300px; */
   height: 40px;
   width: 500px;
   padding: 0px 10px;

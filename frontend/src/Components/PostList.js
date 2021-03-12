@@ -1,7 +1,6 @@
 import React from "react";
 import sample from '../images/sample.jpg'
 import Post from './Post';
-// import axios from "axios";
 
 export default class PostList extends React.Component {
     renderPosts(arr) {
@@ -23,12 +22,9 @@ export default class PostList extends React.Component {
         return <ul>{postArr}</ul>;
     }
 
-
-
     render() {
         return (
             <div className="post-list">
-                {/* <button className="button" onClick={this.props.handleFetch}>Fetch!</button> */}
                 {this.renderPosts(this.props.postArr)}
             </div>
         )

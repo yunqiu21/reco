@@ -6,7 +6,7 @@ import axios from "axios";
 
 function Popup(props) {
     const titleLimit = 30;
-    const descriptionLimit = 200;
+    const descriptionLimit = 500;
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">

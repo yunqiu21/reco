@@ -15,9 +15,7 @@ class Login extends React.Component {
     };
     axios.post("http://localhost:5000/users/login", User)
       .then(response => {
-        // console.log(response);
         let info = response.data.data;
-        // console.log(info);
         localStorage.setItem('userInfo', JSON.stringify(info))
       }).catch(err => alert("Username and password do not match!"));
 

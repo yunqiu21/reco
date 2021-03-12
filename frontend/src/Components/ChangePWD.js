@@ -16,12 +16,8 @@ class ChangePWD extends React.Component {
       "password": new_pwd,
       "signature": user.signature,
     };
-    axios.patch("http://localhost:5000/users/changePassword/:userID", User)
-      .then(response => {
-        // let info = response.data;
-        // localStorage.setItem('userInfo', JSON.stringify(info))
-      });
-    //  localStorage.setItem('userInfo', JSON.stringify(User));
+    axios.patch("http://localhost:5000/users/changePassword/:userID", User);
+    
   }
 
   render() {

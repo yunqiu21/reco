@@ -15,8 +15,7 @@ class Register extends React.Component {
       "signature": document.getElementById("reg_signature").value,
     };
     axios.post("http://localhost:5000/users/register", newUser)
-      .then(response => console.log(response))
-      .catch(err => alert("Username exists!"));
+      .catch(() => alert("Username exists!"));
   }
 
   render() {

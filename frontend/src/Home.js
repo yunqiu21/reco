@@ -1,10 +1,8 @@
 import React from 'react';
 import './Home.css';
-import Catagory from './Components/Catagory'
 import PostList from './Components/PostList';
 import SearchBox from './Components/Searchbox'
 import axios from "axios";
-import Upload from './Components/Upload';
 import Navbar from './Components/Navbar';
 
 class Home extends React.Component {
@@ -89,7 +87,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* <div className="top-bar"></div> */}
         <SearchBox handleSearch={() => this.handleSearch()} />
         <Navbar handleCategory={() => this.handleCategory()} />
         <PostList handleFetch={() => this.handleFetch()}

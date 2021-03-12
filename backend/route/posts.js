@@ -44,7 +44,6 @@ const storage = new GridFsStorage({
 
 //GET ALL IMAGES
 router.get('/upload', (req, res) => {
-  console.log("in here")
   gfs.files.find().toArray((err, files) => {
     // Check if files
     if (!files || files.length === 0) {
@@ -133,7 +132,6 @@ router.patch('/:postID', async (req, res) => {
 
 //  UPLOADING A SINGLE IMAGE TO DATA BASE AS GRIDFS
 router.post('/', upload.single('image'), (req, res) => {
-  console.log(req.file, req.body);
   const post = new Post({
     title: req.body.title,
     author: req.body.author,
@@ -141,7 +139,6 @@ router.post('/', upload.single('image'), (req, res) => {
     category: req.body.category,
     imageId: req.file.id.toString()
   });
-  console.log(post);
   try {
     const savedPost = post.save()  //save to data base
     res.json(savedPost);
@@ -224,10 +221,7 @@ router.post("/:Category", async (req, res) => {
 
 // SEARCH BY AUTHOR
 router.post("/search/author", async (req, res) => {
-  console.log("author called")
   try {
-    console.log("request:");
-    console.log(req.body);
     const allPosts = await Post.find({ author: req.body.author });
 
     if (!allPosts || allPosts.length === 0) {

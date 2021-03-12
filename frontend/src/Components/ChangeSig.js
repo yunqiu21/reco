@@ -17,11 +17,7 @@ class ChangeSig extends React.Component{
       "password": user.password,
       "signature": new_sig,
     };
-    axios.patch("http://localhost:5000/users/editSignature/:userID", User)
-    .then(response => {
-       // let info = response.data;
-       // localStorage.setItem('userInfo', JSON.stringify(info))
-    });
+    axios.patch("http://localhost:5000/users/editSignature/:userID", User);
     localStorage.setItem('userInfo', JSON.stringify(User));
   }
 
