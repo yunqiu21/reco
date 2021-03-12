@@ -13,7 +13,7 @@ function User() {
 
   let username = "you have not logged in yet!";
   let signature = "";
-  if (localStorage.length != 0) {
+  if (localStorage.length !== 0) {
     username = user.username;
     signature = user.signature;
   }

@@ -26,6 +26,7 @@ by the keyword in the title, and all posts containing the keyword will be displa
   <li>npm install</li>
   <li>npm start</li>
   <li>Now the backend is running at http://localhost:5000</li>
+  <li>Wait until the console says "Connect to DB"</li>
   <li>Keep the backend running, and open a second terminal session</li>
   <li>cd reco/frontend</li>
   <li>npm install</li>

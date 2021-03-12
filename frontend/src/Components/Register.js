@@ -15,16 +15,17 @@ class Register extends React.Component {
       "signature": document.getElementById("reg_signature").value,
     };
     axios.post("http://localhost:5000/users/register", newUser)
-      .then(response => console.log(response));
+      .then(response => console.log(response))
+      .catch(err => alert("Username exists!"));
   }
 
   render() {
     return (
       <form className="register">
         <input className="login_input" id="reg_username" placeholder="Enter username" />
-        <input className="login_input" id="reg_password" placeholder="Enter password" />
+        <input type="password" className="login_input" id="reg_password" placeholder="Enter password" />
         <input className="login_input" id="reg_signature" placeholder="Enter signature" />
-        <button className="register_button"
+        <button className="register_button" type="button"
           onClick={() => this.handleRegistration()}>
           Register
         </button>

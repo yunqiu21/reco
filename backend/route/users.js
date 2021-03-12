@@ -56,7 +56,7 @@ router.patch('/changePassword/:userID', async (req, res) => {
             {
                 $set: { password: newPassword },
             });
-            console.log("password set!");
+        console.log("password set!");
         res.json(updatedUser);
     } catch (err) {
         res.json({ message: err });
@@ -66,13 +66,13 @@ router.patch('/changePassword/:userID', async (req, res) => {
 //DELETE ALL USERS (dangerous)
 router.delete('/', async (req, res) => {
     try {
-      const removedUser = await User.remove();
-      res.json(removedUser);
+        const removedUser = await User.remove();
+        res.json(removedUser);
     } catch (err) {
-      res.json({ message: err });
+        res.json({ message: err });
     }
-  })
-  
+})
+
 //UPDATE signature
 router.patch('/editSignature/:userID', async (req, res) => {
     try {
@@ -92,15 +92,15 @@ router.patch('/editSignature/:userID', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const data = await User.findOne({ username: req.body.username });
-        if(!data){
-            res.status(400).json({message: "Invalid username"});
-        }else{
+        if (!data) {
+            res.status(400).json({ message: "Invalid username" });
+        } else {
             const validPassword = await bcrypt.compare(req.body.password,
-                                                        data.password);
+                data.password);
             if (validPassword) {
-              //if the user input is valid, set the current user to req.session.user
+                //if the user input is valid, set the current user to req.session.user
                 console.log("login success!")
-              //  req.session.user = req.body.username;
+                //  req.session.user = req.body.username;
                 //console.log(req.session);
                 res.status(200).json({ data });
             } else {
@@ -119,16 +119,18 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ message: "Incomplete data" });
     }
 
-	const user = new User({
+    const user = new User({
         username: req.body.username,
         password: req.body.password,
         signature: req.body.signature
     })
     try {
+        // console.log(user);
         const data = await User.findOne({
             username: user.username
         });
         if (data) {
+            // console.log(data);
             res.status(400).json({ message: "Username exists" });
         } else {
             // hash password with bcrypt
