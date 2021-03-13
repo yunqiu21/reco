@@ -3,8 +3,6 @@
 <h3>GitHub Link:</h3>
 <p>
 https://github.com/yunqiu21/reco
-<br/>
-Note: Some final changes were not pushed to GitHub
 </p>
 
 <h3>Members:</h3>
