@@ -75,11 +75,31 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-//initialize multer , storing all file in this Path
+// initialize multer , storing all file in this Path
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter
 });
+
+
+// upload a post including a single file
+router.post('/', upload.single('image'), (req, res) => {
+  const post = new Post({
+    title: req.body.title,
+    author: req.body.author,
+    description: req.body.description,
+    category: req.body.category,
+    imageId: req.file.id.toString()
+  });
+  try {
+    const savedPost = post.save()  //save to data base
+    res.json(savedPost);
+  } catch (err) {
+    res.json({ message: err });
+  };
+
+});
+
 
 //GET BACK ALL POSTS
 router.get('/', async (req, res) => {
@@ -129,24 +149,6 @@ router.patch('/:postID', async (req, res) => {
 })
 
 /*------------IMAGE---------------- */
-
-//  UPLOADING A SINGLE IMAGE TO DATA BASE AS GRIDFS
-router.post('/', upload.single('image'), (req, res) => {
-  const post = new Post({
-    title: req.body.title,
-    author: req.body.author,
-    description: req.body.description,
-    category: req.body.category,
-    imageId: req.file.id.toString()
-  });
-  try {
-    const savedPost = post.save()  //save to data base
-    res.json(savedPost);
-  } catch (err) {
-    res.json({ message: err });
-  };
-
-});
 
 
 //GET SPECIFIC IMAGE (by id)

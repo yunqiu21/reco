@@ -34,10 +34,6 @@ function Upload() {
     const [buttonPopup, setButtonPopup] = useState(false);
 
     function handleSubmit() {
-        console.log(document.getElementById("input-title").value);
-        console.log(document.getElementById("input-description").value);
-        console.log(document.getElementById("input-category").value);
-        console.log(document.getElementById("input-image").files[0]);
 
         let user = localStorage.getItem('userInfo');
         if (user === null) {
@@ -51,10 +47,7 @@ function Upload() {
         formdata.append("description", document.getElementById("input-description").value);
         formdata.append("category", document.getElementById("input-category").value);
         formdata.append("image", document.getElementById("input-image").files[0]);
-        for (var pair of formdata.entries()) {
-            console.log(pair[0] + " - " + pair[1]);
-        };
-
+        
         axios({
             method: "post",
             url: "http://localhost:5000/posts",

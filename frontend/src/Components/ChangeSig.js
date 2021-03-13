@@ -6,6 +6,10 @@ class ChangeSig extends React.Component {
 
   changeSig() {
     let user = localStorage.getItem('userInfo');
+    if (user === null) {
+      alert("You are not logged in!")
+      return;
+    }
     user = JSON.parse(user);
     let new_sig = document.getElementById("new_sig").value;
 

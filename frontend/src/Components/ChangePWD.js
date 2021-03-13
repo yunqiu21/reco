@@ -6,6 +6,10 @@ class ChangePWD extends React.Component {
 
   change_pwd() {
     let user = localStorage.getItem('userInfo');
+    if (user === null) {
+      alert("You are not logged in!")
+      return;
+    }
     user = JSON.parse(user);
     let new_pwd = document.getElementById("new_pwd").value;
     let User = {

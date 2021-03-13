@@ -1,5 +1,12 @@
 <h1>RECO - CS 97 Group Project</h1>
 
+<h3>GitHub Link:</h3>
+<p>
+https://github.com/yunqiu21/reco
+<br/>
+Note: Some final changes were not pushed to GitHub
+</p>
+
 <h3>Members:</h3>
 <ul>
   <li>Yunqiu Han</li>
@@ -21,7 +28,10 @@ by the keyword in the title, and all posts containing the keyword will be displa
 
 <h3>How to Run the Project Locally?</h3>
 <ol>
-  <li>Clone the project from GitHub:<br/>git clone https://github.com/yunqiu21/reco.git</li>
+  <li>Clone the project from GitHub:
+    <br/>git clone https://github.com/yunqiu21/reco.git
+    <br/>Or: unzip the compressed file and rename the folder as "reco"
+  </li>
   <li>cd reco/backend</li>
   <li>npm install</li>
   <li>npm start</li>
@@ -32,6 +42,7 @@ by the keyword in the title, and all posts containing the keyword will be displa
   <li>npm install</li>
   <li>npm start</li>
   <li>Now the web app will start on http://localhost:3000</li>
+  <li>To view the intended styling, open the web app with Google Chrome, maximized window.</li>
 </ol>
 
 <h3>References:</h3>

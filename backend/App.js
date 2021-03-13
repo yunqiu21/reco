@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 //Connect to DB
 mongoose.connect(
-  "mongodb+srv://jason1027:jason1027@reco.tbhpq.mongodb.net/Reco?retryWrites=true",
+  process.env.DB_CONNECTION,
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,

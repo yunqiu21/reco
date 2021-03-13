@@ -14,6 +14,10 @@ class MyPosts extends React.Component {
 
   handleFetch = () => {
     let user = localStorage.getItem('userInfo');
+    if (user === null) {
+      alert("You are not logged in!")
+      return;
+    }
     user = JSON.parse(user);
     const input = { author: user.username}
     console.log(input);
