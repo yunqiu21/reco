@@ -1,4 +1,4 @@
-<h1>RECO - CS 97 Group Project</h1>
+<h1>RECO - Recommendation System</h1>
 
 <h3>GitHub Link:</h3>
 <p>
